@@ -527,6 +527,7 @@ body.notloggedin {
 }
 #page-wrapper #page {
     padding: 0;
+    gap: 4rem;
 }
 
 .containerbiossex {
@@ -539,6 +540,11 @@ body.notloggedin {
 }
 
 /*Estilo principal page, welcome*/
+.titleVideo {
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+
 .container{
     margin: 0 auto;
 }
@@ -548,10 +554,9 @@ body.notloggedin {
 }
 /* El contenedor con el padding-top crea el tamaño del vídeo */
 .VideoContent {
-    height: 0px;
+    height: 16rem;
     width: 100%;
     max-width: 500px; /* Así establecemos el ancho máximo (si lo queremos) */
-    padding-top: 56.25%; /* Relación: 16/9 = 56.25% */
 }
 .VideoContent img {
     position: absolute;
@@ -562,11 +567,8 @@ body.notloggedin {
 }
 /* El iframe se adapta al tamaño del contenedor */
 iframe {
-    position: absolute;
     height: 100%;
     width: 100%;
-    top: 0px;
-    left: 0px;
 }
 
 /* El contenedor con el padding-top crea el tamaño del vídeo */
@@ -608,27 +610,6 @@ body {
 }
 
 /*Estilo para el plan de capacitación*/
-.containercapacitacion {
-    background: url([[pix:theme|plancapacitacion]]) rgba(0, 0, 0, 0.7);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-blend-mode: overlay;
-    min-height: 700px;
-    min-width: 100%;
-    padding: 0;
-    margin: 0;
-}
-.containercapacitacion2{
-    background: url([[pix:theme|plancapacitacion]]) rgba(0, 0, 0, 0.7);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-blend-mode: overlay;
-    min-height: 700px;
-    min-width: 100%;
-    padding: 0;
-}
 
 .plancapacitacion img {
     width: 100%;
@@ -695,123 +676,77 @@ body {
     position: absolute;
     display: none;
 }
-/* .lineaTipoUno, .lineaTipoDos{
-    position: absolute;
-    background-color: #fff;
-    display: none;
-}
-#lineaUnomax{
-    top: 34%;
-}
-.lineaUno{
-    position: absolute;
-    background-color: #fff;
-    width: 100%;
-    height: 0.25rem;
-    display: none;
-    top: 42%;
-} */
 
-/* LINEAS PARA DOS FILAS */
-/* .lineaUnoDos{
-    width: 97%;
-    height: 0.25rem;
-    top: 24%;
-    left: 0%;
-}
-.lineaUnoTres{
-    width: 0.25rem;
-    height: 5.2rem;
-    top: 24%;
-    right: 3%;
-}
-.lineaUnoCuatro{
-    width: 94.7%;
-    height: 0.25rem;
-    top: 36%;
-    right: 3%;
-}
-.lineaUnoCinco{
-    width: 0.25rem;
-    height: 13.2rem;
-    top: 36%;
-    left: 2%;
-}
-.lineaUnoSeis{
-    width: 98%;
-    height: 0.25rem;
-    top: 67%;
-    right: 0%;
-} */
+.containCursos{
+    background-color: white;
+    margin: auto;
+    padding: 1.5rem !important;
+    border-radius: 0.5rem;
+  }
+  
+  .containCursos h4{
+    margin: 0;
+    font-size: 2rem;
+    padding-bottom: 1rem;
+    font-weight: 100;
+  }
+  
+  .containCardCursos{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .cardCurso p{
+    margin: 0;
+  }
+  
+  .titleCardCurso{
+    background-color: #a5a5a5;
+    color: #fff;
+    font-size: 2rem;
+    font-weight: bold;
+    min-height: 10rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
 
-/* LINEAS PARA TRES FILAS */
-/* .lineaDosUno{
-    width: 97%;
-    height: 0.25rem;
-    top: 20%;
-    left: 0%;
-}
-.lineaDosDos{
-    width: 0.25rem;
-    height: 5.2rem;
-    top: 20%;
-    right: 3%;
-}
-.lineaDosTres{
-    width: 95%;
-    height: 0.25rem;
-    top: 29%;
-    right: 3%;
-}
-.lineaDosCuatro{
-    width: 0.25rem;
-    height: 13.3rem;
-    top: 29%;
-    left: 2%;
-}
-.lineaDosCinco{
-    width: 95%;
-    height: 0.25rem;
-    top: 53%;
-    left: 2%;
-}
-.lineaDosSeis{
-    width: 0.25rem;
-    height: 5.2rem;
-    top: 53%;
-    right: 3%;
-}
-.lineaDosSiete{
-    width: 95%;
-    height: 0.25rem;
-    top: 62%;
-    left: 2%;
-}
-.lineaDosOcho{
-    width: 0.25rem;
-    height: 13.3rem;
-    top: 62%;
-    left: 2%;
-}
-.lineaDosNueve{
-    width: 98%;
-    height: 0.25rem;
-    top: 86%;
-    right: 0%;
-}
-
-
-.lineaUnomax{
-    position: absolute;
-    background-color: #fff;
-    width: 100%;
-    height: 0.25rem;
-    display: none;
-    top: 55%;
-} */
-
-
-
+  .subtitleCardCurso{
+    font-weight: 600;
+  }
+  
+  .footerCardCurso{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 0.25rem 0;
+    background-color: rgb(105, 105, 105);
+    color: #fff;
+    font-weight:500;
+  }
+  
+  .progressNumber{
+    font: 0.75rem;
+    font-weight: 100;
+  }
+  
+  .contButtonMas{
+    text-align: center;
+    padding: 2rem 0 1rem 0;
+  }
+  
+  .contButtonMas button{
+    background-color: rgb(105, 105, 105);
+    width: 8rem;
+    color: #ffff;
+    border: none;
+    padding: 0.5rem 0;
+    border-radius: 0.5rem;
+    font-size: 1.25rem;
+    cursor: pointer;
+  }
 
 /* Estilos del carrusel */
 
@@ -907,14 +842,22 @@ progress::-moz-progress-bar {
 /*Estilos para el área del podcast*/
 .containerpodcast {
     width: 100%;
-    height: 20rem;
+    height: 100%;
     background-color: white;
+    padding: 2.5rem 0;
 }
-
+.titlePodcast{
+    color: #F38020;
+    text-align: left;
+    padding-bottom: 1.5rem;
+    font-size: 2.5rem;
+    padding-left: 3.5rem;
+}
 .contCasrrusel {
-    width: 100%;
+    width: 90%;
     position: relative;
     margin-top: 1rem !important;
+    margin: auto;
 }
 #hola {
     margin-left: 10rem;
@@ -945,12 +888,12 @@ progress::-moz-progress-bar {
 }
 
 .contCasrrusel i:first-child {
-    left: -32px;
+    left: -55px;
     display: none;
 }
 
 .contCasrrusel i:last-child {
-    right: -32px;
+    right: -55px;
 }
 
 .contCasrrusel .carrusel {
