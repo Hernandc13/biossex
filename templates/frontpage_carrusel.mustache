@@ -1,0 +1,79 @@
+<section class="container">
+    <div class="row mb-biossex">
+        <div id="carouselExampleSlidesOnly" class="carousel slide col-12" data-ride="carousel">
+            <!-- Diapositivas -->
+            <div class="carousel-inner" style="background-color: rgb(250, 247, 247); height:15rem;">
+                <!-- d1 -->
+                <div class="carousel-item active">
+                    <div class="row">
+                        <div class="col-4"  id="textoPortadaSlider">
+                            {{{TextoPortada}}}
+                        </div>
+                        <div class="col-8">
+                            <img src="{{ImgPortada}}" style="height: 50px; width: 100% !important; min-height: 300px !important;">
+                        </div>
+                    </div>
+                </div>
+
+                {{#valores}}
+                <!-- Slider Dinamico-->
+                {{#.}}
+                <div class="carousel-item">
+                    <div class="row">
+                        <!-- Texto del sliderImage desde Base de Datos-->
+                        <div class="col-4" id="textoPortadaSlider2">
+                            {{{texto}}}
+                        </div>
+                        <!-- Image desde Base de Datos-->
+                        <div class="col-8">
+                            <a href="{{link}}">
+                                <img style="height: 50px;  width: 100% !important; min-height: 300px !important;" src="{{url}}">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                {{/.}}
+                {{/valores}}
+
+                <a class="carousel-control-prev" href="#carouselExampleSlidesOnly" style="
+                    font-size: 4rem;
+                    color: #F38020;
+                    font-weight: bold; 
+                    box-shadow:none;" role="button" data-slide="prev">
+                     <i class="fa fa-chevron-left"></i>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleSlidesOnly" style="
+                    font-size: 4rem;
+                    color: #F38020;
+                    font-weight: bold;
+                    box-shadow:none;" role="button" data-slide="next">
+                    <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+            <div class="footerCar">
+                <img src="{{wwwroot}}/theme/biossex/pix/log1.png"
+                    class="rounded float-right">
+            </div>
+            <div style="background-color: #F38020;">
+                <div class="container">
+                    <div class="row" style="height:0.5rem;">
+                        <div class="col-6  footermed"></div>
+                        <div class="col-6 footermed1"></div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- Área del Carrusel -->
+
+<style>
+    #textoPortadaSlider{
+        padding: 1rem 0rem 0rem 2rem !important;
+    }
+    #textoPortadaSlider2{
+        padding: 1rem 0rem 0rem 2rem !important;
+    }
+</style>

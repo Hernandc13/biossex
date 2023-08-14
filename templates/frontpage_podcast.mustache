@@ -1,0 +1,142 @@
+<section class="container">
+    <div class="row mb-biossex">
+        <div class="col-12">
+            <div class="containerpodcast" id="containerPstatus">
+                <!-- Área de podcast-->
+                <div class="container text-center my-3" >
+                    <br>
+                    <h2  style="color:#F38020;"><b>Webinars</b> </h2>
+                    <div class="contCasrrusel">
+                        <i id="left" class="fa fa-chevron-left" style="z-index: 2;"></i>
+                        <div class="carrusel" id="slidescarrusel">
+                            {{#Webinar}}
+                            {{#.}}
+                            <div class="cardCarrusel">
+                                <div  class="contImg"><img class="imgPodcast" src="{{ImgWebinar}}" alt=""></div>
+                                <div class="contTexto" >
+                                    <div>
+                                            <p  id="artist" style="text-align: justify !important;  white-space: initial;">{{titulo}}</p>
+                                            <p id="track" >
+                                                {{presentador}}
+                                            </p>
+                                        <a href="{{link}}" target="_blank">
+                                        <img style="width: 40px; height: 40px;" src="https://img.icons8.com/external-creatype-glyph-colourcreatype/64/FD7E14/external-play-interface-a2-creatype-glyph-colourcreatype.png" alt="">
+                                        </a>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            {{/.}}
+                            {{/Webinar}}
+                        </div>
+                        <i id="right" class="fa fa-chevron-right"></i>
+                    </div>
+
+                </div>
+            </div>
+         </div>
+    </div>
+</section>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+<script>
+           
+// programacion del carusel dinamico
+function printslides(tracks) {
+    
+    var slidetrack = '';
+    tracks.forEach(function (element, index){
+        
+            slidetrack = slidetrack + `
+            
+                    <div class="cardCarrusel">
+                        <div  class="contImg"><img class="imgPodcast" src="${element.track.album.images[0].url}" alt=""></div>
+                        <div class="contTexto" >
+                            <div>
+                                <p id="artist" >
+                                        ${element.track.artists[0].name}
+                                    </p>
+                                    <p id="track" >
+                                        ${element.track.name}
+                                    </p>
+                                <a href="${element.track.external_urls.spotify}" target="_blank">
+                                <img style="width: 30px; height: 30px;" src="https://cdn-icons-png.flaticon.com/128/148/148744.png" alt="">
+                                </a>
+                            </div>
+                            
+                        </div>
+                    </div> `
+
+                    
+        
+        
+      //  document.getElementById('slidescarrusel').innerHTML = slidetrack;
+        const carrusel = document.querySelector(".carrusel"),
+            firstImg = carrusel.querySelectorAll(".cardCarrusel")[0],
+            arrowIcons = document.querySelectorAll(".contCasrrusel i");
+        const showHideIcons = () => {
+            let scrollWidth = carrusel.scrollWidth - carrusel.clientWidth;
+            arrowIcons[0].style.display = carrusel.scrollLeft == 0 ? "none" : "block";
+            arrowIcons[1].style.display = carrusel.scrollLeft == scrollWidth ? "none" : "block";
+        }
+        arrowIcons.forEach(icon => {
+            icon.addEventListener("click", () => {
+                let firstImgWidth = firstImg.clientWidth + 14;
+                carrusel.scrollLeft += icon.id == "left" ? -firstImgWidth : firstImgWidth;
+                setTimeout(() => showHideIcons(), 60);
+            });
+        });
+    });
+    
+}
+
+
+ const clientId = 'c695b8740ba94cc6b627c5beb47c459e';
+    const clientSecret = '326802405c264347a40b73aff2057992';
+    var token = '';
+    fetch('https://accounts.spotify.com/api/token', {
+                method: 'POST',
+                headers: {
+                    'Content-Type' : 'application/x-www-form-urlencoded', 
+                    'Authorization' : 'Basic ' + btoa(clientId + ':' + clientSecret)
+                },
+                body: 'grant_type=client_credentials'
+            }).then(function(data) {
+                
+                result = data.json();
+                result.then(function(information) {
+                    
+                    token = information.access_token;
+                    goplayList(token);
+                });
+                
+            });
+
+
+function goplayList(token){
+        // https://api.spotify.com/v1/playlists/{playlist_id}
+
+//const idplaylist = {{{urlSpotify}}}
+const url ="https://api.spotify.com/v1/playlists/{{urlSpotify}}";
+
+
+var myHeaders = new Headers();
+myHeaders.append("Authorization", `Bearer ${token}`);
+
+var requestOptions = {
+  method: 'GET',
+  headers: myHeaders,
+  redirect: 'follow'
+};
+
+  fetch(url, requestOptions)
+        .then(response => response.json())
+  .then(result => printslides(result.tracks.items))
+  .catch(error => console.log('error', error));
+}    
+
+        
+
+</script>

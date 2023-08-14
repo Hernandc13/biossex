@@ -1,0 +1,321 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+    
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+    
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+    GNU General Public License for more details.
+    
+    You should have received a copy of the GNU General Public License
+    along with Moodle. If not, see
+    <http: //www.gnu.org/licenses />.
+    }}
+    {{!
+    @template core/login
+    
+    Moodle template for the login page.
+    
+    Context variables required for this template:
+    * autofocusform: Auto focus on form ?,
+    * canloginasguest - Is guest login allowed?,
+    * canloginbyemail - Is login by email allowed?,
+    * cansignup - Signup allowed?,
+    * cookieshelpicon - cookies help icon details
+    * error - Any errors in the form?,
+    * forgotpasswordurl - Forgot password url,
+    * hasidentityproviders - Flag, set to true to hide identity providers,
+    * hasinstructions - Flag, set to true to show instructions,
+    * identityproviders - List of identiy providers,
+    * instructions - Instructions,
+    * instructionsformat - Format of instructions,
+    * loginurl - Login url,
+    * rememberusername - Remeber username?,
+    * signupurl - Signup url,
+    * cookieshelpiconformatted - Formatted html of cookies help icon,
+    * errorformatted - Formatted error,
+    * logourl - Flag, logo url,
+    * sitename - Name of site.
+    
+    Example context (json):
+    {
+    "autofocusform": false,
+    "canloginasguest": "1",
+    "canloginbyemail": false,
+    "cansignup": true,
+    "cookieshelpicon": {
+    "heading": "Cookies must be enabled in your browser",
+    "text": "<div class=\"no-overflow\">Two cookies are used on this site. Both died..</div>",
+    "icon": {
+    "attributes": [
+    {
+    "name": "class",
+    "value": "iconhelp"
+    },
+    {
+    "name": "alt",
+    "value": "Help with Cookies must be enabled in your browser"
+    },
+    {
+    "name": "title",
+    "value": "Help with Cookies must be enabled in your browser"
+    },
+    {
+    "name": "src",
+    "value": "http://localhost/stable_master/theme/image.php?theme=boost&component=core&image=help"
+    }
+    ]
+    },
+    "linktext": null,
+    "title": "Help with Cookies must be enabled in your browser",
+    "url": "http://localhost/stable_master/help.php?component=core&identifier=cookiesenabled&lang=en",
+    "ltr": true
+    },
+    "error": "",
+    "forgotpasswordurl": "http://localhost/stable_master/login/forgot_password.php",
+    "hasidentityproviders": false,
+    "hasinstructions": true,
+    "identityproviders": [],
+    "instructions": "For full access to this site, you first need to create an account.",
+    "instructionsformat": "1",
+    "loginurl": "http://localhost/stable_master/login/index.php",
+    "rememberusername": true,
+    "signupurl": "http://localhost/stable_master/login/signup.php",
+    "cookieshelpiconformatted": "",
+    "errorformatted": "",
+    "logourl": false,
+    "sitename": "Beer & Chips"
+    }
+    }}
+    <br>
+    <br>
+    <div class="row justify-content-center" style="overflow: hidden; margin-top: -2rem !important; ">
+            <div class="card loginpanel" style="background-color: rgba(80, 86, 90,0.80); color:#F38020; position: relative;   zoom: 95%; ">
+                <div class="card-block" style="height:42rem !important; width:25rem !important; padding: 3rem !important; position: relative; z-index:1; margin-top: -1rem !important;">
+                    <div class="col-lg-12 form" style="height:42rem !important; position: relative;  ">
+        
+                        <form action="{{loginurl}}" method="post" id="login">
+                            <input id="anchor" type="hidden" name="anchor" value="">
+                            <script>document.getElementById('anchor').value = location.hash;</script>
+                            <input type="hidden" name="logintoken" value="{{logintoken}}">
+                            <br>
+                    <br><center>
+                    
+                        <img src="{{wwwroot}}/theme/biossex/pix/biossexwhite.png" alt="" style="width: 150px; margin-top: -5rem; position:absolute; z-index:2; margin-left: -2rem;">
+                    
+                        <i style="font-size: 5rem; margin-top: -1rem;" class="fa fa-user-circle"></i>
+                        <br>
+                        <b style="color:white; font-size: 1.5rem;">Bienvenido</b>
+                    </center>
+                    <br>
+                            <label for="username" class="sr-only">
+                                {{^canloginbyemail}}
+                                {{#str}} username {{/str}}
+                                {{/canloginbyemail}}
+                                {{#canloginbyemail}}
+                                {{#str}} usernameemail {{/str}}
+                                {{/canloginbyemail}}
+                            </label>
+                            <label for="" style="color:white;">Usuario</label>
+                            <div class="input-group input-group-username">
+                                <input style="height: 2rem !important; border-radius: 0.3rem;" type="text" name="username" id="username" class="form-control" value="{{username}}"
+                                placeholder={{#quote}}Usuario:{{/quote}} id="floatingInput">
+                            </div>
+                            <br>
+                            <label for="" style="color:white;">Contraseña</label>
+                            <label for="password" class="sr-only">{{#str}} password {{/str}}</label>
+                            <div class="input-group input-group-password form-floating">
+                                <input  style="height: 2rem !important; border-radius: 0.3rem;" type="password" name="password" id="password" value="" class="form-control"
+                                    placeholder={{#quote}}Contraseña:{{/quote}}>
+                            </div>
+                            <br>
+                            <center>
+                                <p><a style="color:#F38020; font-size: 0.8rem;" href="{{forgotpasswordurl}}">No puedo entrar u olvidé mi contraseña</a></p>
+                            </center>
+                            <center>
+                                <button style="width:16rem; color:white;" type="submit" class="btn" id="loginbtn"> Entrar</button>
+                            </center>
+                        </form>
+                        <br>
+                        <div class="forgetpass m-t-1">
+                            <center>
+                                {{#rememberusername}}
+                                <div class="rememberpass m-t-1">
+                                    <input type="checkbox" name="rememberusername" id="rememberusername" value="1"
+                                        {{#username}}checked="checked" {{/username}} />
+                                    <label for="rememberusername" style="font-size: 0.8rem;"> Recordar Usuario</label>
+                                </div>
+                                {{/rememberusername}}
+                            </center>
+                        </div>
+                        <br>
+                        <center>
+                        <div class="m-t-8">
+                            <div class="row">
+                                <div class="col-6">
+                                    {{#cansignup}}
+                                    <a href="{{signupurl}}" style="text-decoration: none;">
+                                        <button style=" border-color:#F38020; 
+                                                        background-color:transparent !important; 
+                                                        color:white; 
+                                                        width:9rem;
+                                                        margin-left:-1.5rem "
+                                                        
+                                                id="third" 
+                                                class="btn btn-block" 
+                                                type="submit"> 
+                                            Registro
+                                        </button>
+                                    </a>
+                                {{/cansignup}}
+                                </div>
+                                <div class="col-6">
+                                    {{#canloginasguest}}
+                                
+                                    <form action="{{loginurl}}" method="post" id="guestlogin">
+                                        <input type="hidden" name="logintoken" value="{{logintoken}}">
+                                        <input type="hidden" name="username" value="guest" />
+                                        <input type="hidden" name="password" value="guest" />
+                                        <input type="hidden" name="logintoken" value="{{logintoken}}">
+                                        
+                    <button style=" border-color:#F38020; background-color:transparent !important; color:white; width:9rem;" id="third" class="btn btn-block" type="submit"> Invitado</button>
+                                           
+                                            
+                                            
+                                    </form>
+                            
+                                
+                                {{/canloginasguest}}
+                                </div>
+                            </div>
+                            <br>
+                            <center>
+                            <a  href="#" target="_blank" style="color:#F38020; font-size: 0.8rem;">biossex.com</a>
+                            </center>
+                        </div>
+                        </center>
+                    </div>
+                </div>
+                <div class="banner"></div>
+            </div>
+    
+    </div>
+    
+    
+    {{#js}}
+    {{#error}}
+    require(['jquery'], function($) {
+    $('#loginerrormessage').focus();
+    });
+    {{/error}}
+    {{^error}}
+    {{#autofocusform}}
+    require(['jquery'], function($) {
+    if ($('#username').val()) {
+    $('#password').focus();
+    } else {
+    $('#username').focus();
+    }
+    });
+    {{/autofocusform}}
+    {{/error}}
+    {{/js}}
+    
+    <style>
+        .imgcontainer{
+            background-image:url([[pix:theme|biossexwhite]]) !important;
+        }
+        .banner{
+            width: 13rem;
+            height: 0.5rem;
+            background-color: #F38020;
+            margin-left: 12.1rem;
+            margin-top: -1rem;
+            border-radius: 0% 0% 0.5rem 0%;
+        }
+        .btn:visited {
+            text-transform: uppercase;
+            text-decoration: none;
+            padding: 15px 40px;
+            display: inline-block;
+            transition: all .2s;
+            position: absolute;
+        }
+        
+       
+        .btn:active {
+            transform: translateY(-1px);
+            border-radius: 0.2rem;
+        }
+        
+        .btn {
+            background-color: #F38020;
+            color: black;
+            border-radius: 0.2rem;
+        }
+        
+        .btn::after {
+            content: "";
+            display: inline-block;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            transition: all .4s;
+        }
+        
+        .btn::after {
+            background-color: transparent;
+        }
+        
+        .btn:hover::after {
+            transform: scaleX(1.4) scaleY(1.6);
+            opacity: 0;
+        }
+        
+        .btn{
+            animation: moveInBottom 5s ease-out;
+            animation-fill-mode: backwards;
+        }
+        .input-group{
+            animation: moveInBottom 5s ease-out;
+            animation-fill-mode: backwards;
+        }
+        .forgetpass{
+            animation: moveInBottom 5s ease-out;
+            animation-fill-mode: backwards;
+        }
+        .rememberpass{
+            animation: moveInBottom 5s ease-out;
+            animation-fill-mode: backwards;
+        }
+        .welcome{
+            animation: moveInBottom 5s ease-out;
+            animation-fill-mode: backwards;
+        }
+        .loginpanel{
+            animation: moveInBottom 5s ease-out;
+            animation-fill-mode: backwards;
+        }
+        @keyframes moveInBottom {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+        
+            100% {
+                opacity: 1;
+                transform: translateY(0px);
+            }
+        }
+        .pagelayout-login #page,
+        body {
+            overflow: hidden;
+        }
+    </style>

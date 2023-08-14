@@ -1,0 +1,1080 @@
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+<div class="section">
+  <div class="row">
+    <div class="col-12" >
+      <form action="{{wwwroot}}/theme/biossex/pages/PlanCapacitacion.php" method="post" class="form" >
+        <h3 class="text-center" id="plan" style="color:white;">Plan de Capacitación</h3>
+        <!-- Progress bar -->
+        <div class="progressbar"  style="visibility:hidden" id="linea" >
+          <progress id="barraProgreso" class="barraProgreso" max="100" value="0"></progress> <!-- CAMBIOS DANIEL -->
+          <div class="progress-step progress-step-active" data-title="Puesto" id="frmPrincipal">
+         
+            <img src="{{urlpuesto}}" alt=""> <!--  CAMBIOS DANIEL  -->
+          </div>
+          <div class="progress-step animate__animated animate__zoomInUp " data-title="Sem.1" id="1" style="display: none"><img src="{{circle}}" alt=""></div>
+          <div class="progress-step animate__animated animate__zoomInUp " data-title="Sem.2" id="2" style="display: none"><img src="{{circle}}" alt=""></div>
+          <div class="progress-step animate__animated animate__zoomInUp " data-title="Sem.3" id="3" style="display: none"><img src="{{circle}}" alt=""></div>
+          <div class="progress-step animate__animated animate__zoomInUp " data-title="Sem.4" id="4" style="display: none"><img src="{{circle}}" alt=""></div>
+          <div class="progress-step animate__animated animate__zoomInUp " data-title="Sem.5" id="5" style="display: none"><img src="{{circle}}" alt=""></div>
+          <div class="progress-step animate__animated animate__zoomInUp " data-title="Sem.6" id="6" style="display: none"><img src="{{circle}}" alt=""></div>
+          <div class="progress-step animate__animated animate__zoomInUp " data-title="Sem.7" id="7" style="display: none"><img src="{{circle}}" alt=""></div>
+          <div class="progress-step animate__animated animate__zoomInUp " data-title="Sem.8" id="8" style="display: none"><img src="{{circle}}" alt=""></div>
+          <div class="progress-step animate__animated animate__zoomInUp " data-title="Sem.9" id="9" style="display: none"><img src="{{circle}}" alt=""></div>
+          <div class="progress-step animate__animated animate__zoomInUp " data-title="Sem.10" id="10" style="display: none"><img src="{{circle}}" alt=""></div>
+          <div class="progress-step animate__animated animate__zoomInUp " data-title="Sem.11" id="11" style="display: none"><img src="{{circle}}" alt=""></div>
+          <div class="progress-step animate__animated animate__zoomInUp " data-title="Sem.12" id="12" style="display: none"><img src="{{circle}}" alt=""></div>
+          <div class="progress-step animate__animated animate__zoomInUp " data-title="Sem.13" id="13" style="display: none"><img src="{{circle}}" alt=""></div>
+          <div class="progress-step animate__animated animate__zoomInUp " data-title="Sem.14" id="14" style="display: none"><img src="{{circle}}" alt=""></div>
+          <div class="progress-step animate__animated animate__zoomInUp " data-title="Sem.15" id="15" style="display: none"><img src="{{circle}}" alt=""></div>
+        </div>
+        <!-- Steps -->
+        <div class="form-step form-step-active">
+          <center>
+            <button type="button" class="btn animate__animated animate__zoomInDown" onclick="modal();" id="btnModal"> <i class="fa fa-check-square-o" aria-hidden="true"></i> Iniciar Plan de
+              Capacitación</button>
+          </center>
+          <input type="text" name="puestoselect" id="puestoselect" style="display: none;">
+          <div class="">
+            <div class="row">
+              <div class="col">
+                <a href="#" class="btn" onclick="modalConfirmacion();" id="btnCambio"
+                  style="display: none">Cambiar puesto</a>
+              </div>
+              <div class="col">
+                <a href="#" class="btn btn-next" onclick="ShowSelected();" id="next" style="display: none">Siguiente 
+                  <div class="icon"><img src="{{circleright}}" alt=""></div></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-step">
+          <div class="input-group">
+            <label for="">Semana 1:</label>
+            <select name="CURSO1[]" class="form-control multiple-select" multiple>
+              <option value="">Seleccione un curso</option>
+              {{#cursos}}
+              {{#.}}
+              <option value="{{id}}">{{shortname}}</option>
+              {{/.}}
+              {{/cursos}}
+            </select>
+          </div>
+
+          <div class="">
+            <div class="row">
+              <div class="col">
+                <a href="#" class="btn btn-prev">Atrás
+                  <div class="icon"><img src="{{circleleft}}" alt=""></div>
+                </a>
+              </div>
+              <div class="col" id="next1">
+                <a href="#" class="btn btn-next">Siguiente
+                  <div class="icon"><img src="{{circleright}}" alt=""></div>
+                </a>
+              </div>
+              <div class="col" style="display: none" id="btnform1">
+                <button type="submit" class="btn"><i class="fa fa-check-square" aria-hidden="true"></i> Registrar Capacitación</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="form-step">
+          <div class="input-group">
+            <label for="">Semana 2:</label>
+            <select name="CURSO2[]" class="form-control multiple-select" multiple>
+              <option value="">Seleccione un curso</option>
+              {{#cursos}}
+              {{#.}}
+              <option value="{{id}}">{{shortname}}</option>
+              {{/.}}
+              {{/cursos}}
+            </select>
+          </div>
+          <div class="">
+            <div class="row">
+              <div class="col">
+                <a href="#" class="btn btn-prev">Atrás
+                  <div class="icon"><img src="{{circleleft}}" alt=""></div>
+                </a>
+              </div>
+              <div class="col" id="next2">
+                <a href="#" class="btn btn-next">Siguiente
+                  <div class="icon"><img src="{{circleright}}" alt=""></div>
+                </a>
+              </div>
+              <div class="col" style="display: none" id="btnform2">
+                <button type="submit" class="btn"><i class="fa fa-check-square" aria-hidden="true"></i> Registrar Capacitación</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-step">
+          <div class="input-group">
+            <label for="">Semana 3:</label>
+            <select name="CURSO3[]" class="form-control multiple-select" multiple>
+              <option value="">Seleccione un curso</option>
+              {{#cursos}}
+              {{#.}}
+              <option value="{{id}}">{{shortname}}</option>
+              {{/.}}
+              {{/cursos}}
+            </select>
+          </div>
+          <div class="">
+            <div class="row">
+              <div class="col">
+                <a href="#" class="btn btn-prev">Atrás
+                  <div class="icon"><img src="{{circleleft}}" alt=""></div>
+                </a>
+              </div>
+              <div class="col" id="next3">
+                <a href="#" class="btn btn-next">Siguiente
+                  <div class="icon"><img src="{{circleright}}" alt=""></div>
+                </a>
+              </div>
+              <div class="col" style="display: none" id="btnform3">
+                <button type="submit" class="btn"><i class="fa fa-check-square" aria-hidden="true"></i> Registrar Capacitación</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-step">
+          <div class="input-group">
+            <label for="">Semana 4:</label>
+            <select name="CURSO4[]" class="form-control multiple-select" multiple>
+              <option value="">Seleccione un curso</option>
+              {{#cursos}}
+              {{#.}}
+              <option value="{{id}}">{{shortname}}</option>
+              {{/.}}
+              {{/cursos}}
+            </select>
+          </div>
+          <div class="">
+            <div class="row">
+              <div class="col">
+                <a href="#" class="btn btn-prev">Atrás
+                  <div class="icon"><img src="{{circleleft}}" alt=""></div>
+                </a>
+              </div>
+              <div class="col" id="next4">
+                <a href="#" class="btn btn-next">Siguiente
+                  <div class="icon"><img src="{{circleright}}" alt=""></div>
+                </a>
+              </div>
+              <div class="col" style="display: none" id="btnform4">
+                <button type="submit" class="btn"><i class="fa fa-check-square" aria-hidden="true"></i> Registrar Capacitación</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-step">
+          <div class="input-group">
+            <label for="">Semana 5:</label>
+            <select name="CURSO5[]" class="form-control multiple-select" multiple>
+              <option value="">Seleccione un curso</option>
+              {{#cursos}}
+              {{#.}}
+              <option value="{{id}}">{{shortname}}</option>
+              {{/.}}
+              {{/cursos}}
+            </select>
+          </div>
+          <div class="">
+            <div class="row">
+              <div class="col">
+                <a href="#" class="btn btn-prev">Atrás
+                  <div class="icon"><img src="{{circleleft}}" alt=""></div>
+                </a>
+              </div>
+              <div class="col" id="next5">
+                <a href="#" class="btn btn-next">Siguiente
+                  <div class="icon"><img src="{{circleright}}" alt=""></div>
+                </a>
+              </div>
+              <div class="col" style="display: none" id="btnform5">
+                <button type="submit" class="btn"><i class="fa fa-check-square" aria-hidden="true"></i> Registrar Capacitación</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-step">
+          <div class="input-group">
+            <label for="">Semana 6:</label>
+            <select name="CURSO6[]" class="form-control multiple-select" multiple>
+              <option value="">Seleccione un curso</option>
+              {{#cursos}}
+              {{#.}}
+              <option value="{{id}}">{{shortname}}</option>
+              {{/.}}
+              {{/cursos}}
+            </select>
+          </div>
+          <div class="">
+            <div class="row">
+              <div class="col">
+                <a href="#" class="btn btn-prev">Atrás
+                  <div class="icon"><img src="{{circleleft}}" alt=""></div>
+                </a>
+              </div>
+              <div class="col" id="next6">
+                <a href="#" class="btn btn-next">Siguiente
+                  <div class="icon"><img src="{{circleright}}" alt=""></div>
+                </a>
+              </div>
+              <div class="col" style="display: none" id="btnform6">
+                <button type="submit" class="btn"><i class="fa fa-check-square" aria-hidden="true"></i> Registrar Capacitación</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-step">
+          <div class="input-group">
+            <label for="">Semana 7:</label>
+            <select name="CURSO7[]" class="form-control multiple-select" multiple>
+              <option value="">Seleccione un curso</option>
+              {{#cursos}}
+              {{#.}}
+              <option value="{{id}}">{{shortname}}</option>
+              {{/.}}
+              {{/cursos}}
+            </select>
+          </div>
+          <div class="">
+            <div class="row">
+              <div class="col">
+                <a href="#" class="btn btn-prev">Atrás
+                  <div class="icon"><img src="{{circleleft}}" alt=""></div>
+                </a>
+              </div>
+              <div class="col" id="next7">
+                <a href="#" class="btn btn-next">Siguiente
+                  <div class="icon"><img src="{{circleright}}" alt=""></div>
+                </a>
+              </div>
+              <div class="col" style="display: none" id="btnform7">
+                <button type="submit" class="btn"> <i class="fa fa-check-square" aria-hidden="true"></i> Registrar Capacitación</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-step">
+          <div class="input-group">
+            <label for="">Semana 8:</label>
+            <select name="CURSO8[]" class="form-control multiple-select" multiple>
+              <option value="">Seleccione un curso</option>
+              {{#cursos}}
+              {{#.}}
+              <option value="{{id}}">{{shortname}}</option>
+              {{/.}}
+              {{/cursos}}
+            </select>
+          </div>
+          <div class="">
+            <div class="row">
+              <div class="col">
+                <a href="#" class="btn btn-prev">Atrás
+                  <div class="icon"><img src="{{circleleft}}" alt=""></div>
+                </a>
+              </div>
+              <div class="col" id="next8">
+                <a href="#" class="btn btn-next">Siguiente
+                  <div class="icon"><img src="{{circleright}}" alt=""></div>
+                </a>
+              </div>
+              <div class="col" style="display: none" id="btnform8">
+                <button type="submit" class="btn"><i class="fa fa-check-square" aria-hidden="true"></i> Registrar Capacitación</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-step">
+          <div class="input-group">
+            <label for="">Semana 9:</label>
+            <select name="CURSO9[]" class="form-control multiple-select" multiple>
+              <option value="">Seleccione un curso</option>
+              {{#cursos}}
+              {{#.}}
+              <option value="{{id}}">{{shortname}}</option>
+              {{/.}}
+              {{/cursos}}
+            </select>
+          </div>
+          <div class="">
+            <div class="row">
+              <div class="col">
+                <a href="#" class="btn btn-prev">Atrás
+                  <div class="icon"><img src="{{circleleft}}" alt=""></div>
+                </a>
+              </div>
+              <div class="col" id="next9">
+                <a href="#" class="btn btn-next">Siguiente
+                  <div class="icon"><img src="{{circleright}}" alt=""></div>
+                </a>
+              </div>
+              <div class="col" style="display: none" id="btnform9">
+                <button type="submit" class="btn"><i class="fa fa-check-square" aria-hidden="true"></i> Registrar Capacitación</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-step">
+          <div class="input-group">
+            <label for="">Semana 10:</label>
+            <select name="CURSO10[]" class="form-control multiple-select" multiple>
+              <option value="">Seleccione un curso</option>
+              {{#cursos}}
+              {{#.}}
+              <option value="{{id}}">{{shortname}}</option>
+              {{/.}}
+              {{/cursos}}
+            </select>
+          </div>
+          <div class="">
+            <div class="row">
+              <div class="col">
+                <a href="#" class="btn btn-prev">Atrás
+                  <div class="icon"><img src="{{circleleft}}" alt=""></div>
+                </a>
+              </div>
+              <div class="col" id="next10">
+                <a href="#" class="btn btn-next">Siguiente
+                  <div class="icon"><img src="{{circleright}}" alt=""></div>
+                </a>
+              </div>
+              <div class="col" style="display: none" id="btnform10">
+                <button type="submit" class="btn"><i class="fa fa-check-square" aria-hidden="true"></i> Registrar Capacitación</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-step">
+          <div class="input-group">
+            <label for="">Semana 11:</label>
+            <select name="CURSO11[]" class="form-control multiple-select" multiple>
+              <option value="">Seleccione un curso</option>
+              {{#cursos}}
+              {{#.}}
+              <option value="{{id}}">{{shortname}}</option>
+              {{/.}}
+              {{/cursos}}
+            </select>
+          </div>
+          <div class="">
+            <div class="row">
+              <div class="col">
+                <a href="#" class="btn btn-prev">Atrás
+                  <div class="icon"><img src="{{circleleft}}" alt=""></div>
+                </a>
+              </div>
+              <div class="col" id="next11">
+                <a href="#" class="btn btn-next">Siguiente
+                  <div class="icon"><img src="{{circleright}}" alt=""></div>
+                </a>
+              </div>
+              <div class="col" style="display: none" id="btnform11">
+                <button type="submit" class="btn"><i class="fa fa-check-square" aria-hidden="true"></i> Registrar Capacitación</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-step">
+          <div class="input-group">
+            <label for="">Semana 12:</label>
+            <select name="CURSO12[]" class="form-control multiple-select" multiple>
+              <option value="">Seleccione un curso</option>
+              {{#cursos}}
+              {{#.}}
+              <option value="{{id}}">{{shortname}}</option>
+              {{/.}}
+              {{/cursos}}
+            </select>
+          </div>
+          <div class="">
+            <div class="row">
+              <div class="col">
+                <a href="#" class="btn btn-prev">Atrás
+                  <div class="icon"><img src="{{circleleft}}" alt=""></div>
+                </a>
+              </div>
+              <div class="col" id="next12">
+                <a href="#" class="btn btn-next">Siguiente
+                  <div class="icon"><img src="{{circleright}}" alt=""></div>
+                </a>
+              </div>
+              <div class="col" style="display: none" id="btnform12">
+                <button type="submit" class="btn"><i class="fa fa-check-square" aria-hidden="true"></i> Registrar Capacitación</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-step">
+          <div class="input-group">
+            <label for="">Semana 13:</label>
+            <select name="CURSO13[]" class="form-control multiple-select" multiple>
+              <option value="">Seleccione un curso</option>
+              {{#cursos}}
+              {{#.}}
+              <option value="{{id}}">{{shortname}}</option>
+              {{/.}}
+              {{/cursos}}
+            </select>
+          </div>
+          <div class="">
+            <div class="row">
+              <div class="col">
+                <a href="#" class="btn btn-prev">Atrás
+                  <div class="icon"><img src="{{circleleft}}" alt=""></div>
+                </a>
+              </div>
+              <div class="col" id="next13">
+                <a href="#" class="btn btn-next">Siguiente
+                  <div class="icon"><img src="{{circleright}}" alt=""></div>
+                </a>
+              </div>
+              <div class="col" style="display: none" id="btnform13">
+                <button type="submit" class="btn"><i class="fa fa-check-square" aria-hidden="true"></i> Registrar Capacitación</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-step">
+          <div class="input-group">
+            <label for="">Semana 14:</label>
+            <select name="CURSO14[]" class="form-control multiple-select" multiple>
+              <option value="">Seleccione un curso</option>
+              {{#cursos}}
+              {{#.}}
+              <option value="{{id}}">{{shortname}}</option>
+              {{/.}}
+              {{/cursos}}
+            </select>
+          </div>
+          <div class="">
+            <div class="row">
+              <div class="col">
+                <a href="#" class="btn btn-prev">Atrás
+                  <div class="icon"><img src="{{circleleft}}" alt=""></div>
+                </a>
+              </div>
+              <div class="col" id="next14">
+                <a href="#" class="btn btn-next">Siguiente
+                  <div class="icon"><img src="{{circleright}}" alt=""></div>
+                </a>
+              </div>
+              <div class="col" style="display: none" id="btnform14">
+                <button type="submit" class="btn"><i class="fa fa-check-square" aria-hidden="true"></i> Registrar Capacitación</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-step">
+          <div class="input-group">
+            <label for="">Semana 15:</label>
+            <select name="CURSO15[]" class="form-control multiple-select" multiple>
+              <option value="">Seleccione un curso</option>
+              {{#cursos}}
+              {{#.}}
+              <option value="{{id}}">{{shortname}}</option>
+              {{/.}}
+              {{/cursos}}
+            </select>
+          </div>
+          <div class="">
+            <div class="row">
+              <div class="col">
+                <a href="#" class="btn btn-prev">Atrás
+                  <div class="icon"><img src="{{circleleft}}" alt=""></div>
+                </a>
+              </div>
+              <div class="col" id="next15">
+                <a href="#" class="btn btn-next">Siguiente
+                  <div class="icon"><img src="{{circleright}}" alt=""></div>
+                </a>
+              </div>
+              <div class="col" style="display: none" id="btnform15">
+                <button type="submit" class="btn"><i class="fa fa-check-square" aria-hidden="true"></i> Registrar Capacitación</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+      <div class="col" style="margin-top: 2rem;">
+        <div class="row">
+          <div class="col-8">
+            <form action="{{wwwroot}}/theme/biossex/pages/PlanCapacitacion.php" method="post">
+            <input type="text" name="txtbusqueda" id="txtbusqueda" placeholder="Buscar plan de capacitación...">
+          </div>
+          <div class="col-4">
+            <div class="row">
+              <div class="col">
+                <button class="btn" type="submit"><i class="fa fa-search" aria-hidden="true"></i> Ver información</button>
+              </div>
+              <div class="col">
+                <form action="{{wwwroot}}/theme/biossex/pages/PlanCapacitacion.php?everyone=everyone" method="post">
+                  <button class="btn" type="submit"><i class="fa fa-table" aria-hidden="true"></i> Ver todos</button>
+                </form>
+              </div>
+              <div class="col">
+                  <button class="btn" type="button" onclick="modalSemana();"><i class="fa fa-plus" aria-hidden="true"></i> Semana</button>
+              </div>
+            </div>
+          </div>
+        </form>
+        </div>
+      </div>
+    <div class="col-12" style="margin-top: 2rem;">
+      <table class="table table-hover">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Puesto</th>
+            <th scope="col">Semana</th>
+            <th scope="col">Curso</th>
+            <th scope="col">Operaciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#capacitacion}}
+          {{#.}}
+          <tr>
+            <th scope="row">{{id}}</th>
+            <td>{{tipo_puesto}}</td>
+            <td>{{semanas}}</td>
+            <td>{{cursoid}}</td>
+            <td>
+              <div class="row">
+                <div class="col">
+                  <a href="{{wwwroot}}/theme/biossex/pages/PlanCapacitacion.php?id={{id}}" class="btn" ><i class="fa fa-trash" aria-hidden="true"></i> Eliminar</a>
+                </div>
+                <div class="col">
+                  <a href="{{wwwroot}}/theme/biossex/pages/updateCapacitacion.php?id={{id}}" class="btn"><i class="fa fa-pencil-square" aria-hidden="true"></i> Actualizar</a>
+                </div>
+              </div>
+            </td>
+          </tr>
+          {{/.}}
+          {{/capacitacion}}
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title text-center" id="exampleModalLabel">Seleccione Puesto</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="input-group">
+            <select name="PUESTO" class="form-control" id="puesto">
+              <option value="Seleccione un puesto">Seleccione un puesto</option>
+              {{#puestos}}
+              {{#.}}
+              <option value="{{data}}">{{data}}</option>
+              {{/.}}
+              {{/puestos}}
+            </select>
+          </div>
+          <div class="input-group">
+            <select name="selectSemanas" id="selectSemanas" class="form-control">
+              <option value="Seleccione un puesto">Seleccione Semanas</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
+              <option value="13">13</option>
+              <option value="14">14</option>
+              <option value="15">15</option>
+            </select>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn" data-dismiss="modal"
+            onclick="CargaSemanas();"> <i class="fa fa-cog" aria-hidden="true"></i> Iniciar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="ModalConfirmacion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-center" id="exampleModalLabel">Confirmación</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <center>
+          <h5>¿Está seguro que desea cambiar de puesto?</h5>
+        </center>
+       <div class="row">
+        <div class="col-6">
+          <button type="button" class="btn" data-dismiss="modal"
+          onclick="Cambiarmodal();"><i class="fa fa-check-circle" aria-hidden="true"></i> Si,Cambiar puesto.</button>
+        </div>
+        <div class="col-6">
+          <button type="button" class="btn" data-dismiss="modal"><i class="fa fa-times-circle" aria-hidden="true"></i> No,Cancelar.</button>
+        </div>
+       </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="ModalSemana" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+aria-hidden="true">
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title text-center" id="exampleModalLabel">Semana Extra</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <center>
+        <h5>Agregar semana al plan de capacitación</h5>
+      </center>
+        <form action="{{wwwroot}}/theme/biossex/pages/PlanCapacitacion.php" method="post">
+        <div class="input-group">
+          <select name="PUESTOSemana" class="form-control" >
+            <option value="Seleccione un puesto">Seleccione un puesto</option>
+            {{#puestos}}
+            {{#.}}
+            <option value="{{data}}">{{data}}</option>
+            {{/.}}
+            {{/puestos}}
+          </select>
+        </div>
+        <div class="input-group">
+          <label for="">Semana Extra:</label>
+          <select name="CURSOSemana[]" class="form-control multiple-select" multiple style="width: 100%;">
+            <option value="">Seleccione un curso</option>
+            {{#cursos}}
+            {{#.}}
+            <option value="{{id}}">{{shortname}}</option>
+            {{/.}}
+            {{/cursos}}
+          </select>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+      <button type="submit" class="btn" ><i class="fa fa-check-circle" aria-hidden="true"></i> Guardar</button>
+    </form>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+
+<script>
+  //carga las semanas seleccionadas     
+  function CargaSemanas() {
+      //obtenemos las semanas seleccionadas;
+      var semanas = document.getElementById("selectSemanas").value;
+      document.getElementById("frmPrincipal").style.display = "block";
+      document.getElementById("linea").style.visibility = "visible";
+      //ponemos visible el contenedor que almacena las semanas.
+      // iniciamos for para pintar solo las semanas que fueron seleccionadas.
+      for (var i = 1; i <= semanas; i++) {
+          document.getElementById("" + i).style.display = "block";
+          if (i == semanas) {
+              document.getElementById("btnform" + i).style.display = "block";
+              document.getElementById("next" + i).style.display = "none";
+          }
+      }
+      porcentajeVarianza = 100 / parseInt(semanas); /*CAMBIOS DANIEL*/
+  }
+  function modal() {
+      $('#exampleModal').modal('toggle');
+  }
+  function modalConfirmacion() {
+      $('#ModalConfirmacion').modal('toggle');
+  }
+  function modalSemana() {
+      $('#ModalSemana').modal('toggle');
+  }
+  function Cambiarmodal() {
+      for (var i = 1; i <= 15; i++) {
+          document.getElementById("" + i).style.display = "none";
+          document.getElementById("next" + i).style.display = "block";
+          document.getElementById("btnform" + i).style.display = "none";
+      }
+      $('#exampleModal').modal('toggle');
+  }
+  function Iniciar() {
+      var cod = document.getElementById("puesto").value;
+      document.getElementById("plan").innerHTML = "Puesto: " + cod;
+      document.getElementById("btnModal").style.display = "none";
+  }
+  //obtenemos la opcion del puesto seleccionada
+  document.getElementById("puesto").addEventListener("change", function () {
+      var cod = document.getElementById("puesto").value;
+      if (cod != "Seleccione un puesto") //si la opcion seleccionada es activo
+      {
+          var cod = document.getElementById("puesto").value;
+          document.getElementById("puestoselect").value = cod;
+          document.getElementById("next").style.display = "flex";
+          document.getElementById("btnCambio").style.display = "block";
+          Iniciar();
+      } else {
+          document.getElementById("next").style.display = "none";
+      }
+
+
+  });
+
+  function ShowSelected() {
+      /* Para obtener el valor */
+      var cod = document.getElementById("puesto").value;
+      document.getElementById("plan").innerHTML = "Puesto: " + cod;
+  }
+  function ShowSelectedAtras() {
+      /* Para obtener el valor */
+      document.getElementById("plan").innerHTML = "Plan de Capacitación";
+  }
+  const prevBtns = document.querySelectorAll(".btn-prev");
+  const nextBtns = document.querySelectorAll(".btn-next");
+  const progress = document.getElementById("progress");
+  const formSteps = document.querySelectorAll(".form-step");
+  const progressSteps = document.querySelectorAll(".progress-step");
+  const progressStepsIcon = document.querySelectorAll(".progress-step img"); /*CAMBIOS DANIEL*/
+  const progressBar = document.getElementById("barraProgreso"); /*CAMBIOS DANIEL*/
+  let formStepsNum = 0;
+  let porcentajeActual = 0, porcentajeVarianza = 0; /*CAMBIOS DANIEL*/
+
+  nextBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+          formStepsNum++;
+          porcentajeActual += porcentajeVarianza; /*CAMBIOS DANIEL*/
+          updateFormSteps();
+          updateProgressbar();
+      });
+  });
+
+  prevBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+          formStepsNum--;
+          porcentajeActual -= porcentajeVarianza; /*CAMBIOS DANIEL*/
+          updateFormSteps();
+          updateProgressbar();
+      });
+  });
+
+  function updateFormSteps() {
+      formSteps.forEach((formStep) => {
+          formStep.classList.contains("form-step-active") &&
+              formStep.classList.remove("form-step-active");
+      });
+
+      formSteps[formStepsNum].classList.add("form-step-active");
+  }
+
+  function updateProgressbar() {
+      progressSteps.forEach((progressStep, idx) => {
+          if (idx < formStepsNum + 1) {
+              progressStep.classList.add("progress-step-active");
+          } else {
+              progressStep.classList.remove("progress-step-active");
+          }
+      });
+      /* CAMBIOS DANIEL */
+      progressStepsIcon.forEach((progressStepsIcon, idx) => {
+          if (idx < formStepsNum + 1) {
+              progressStepsIcon.classList.add("displayVisible")
+          } else {
+              progressStepsIcon.classList.remove("displayVisible")
+          }
+          
+      });
+      progressBar.setAttribute('value', porcentajeActual);
+      /* CAMBIOS DANIEL */
+      
+      const progressActive = document.querySelectorAll(".progress-step-active");
+
+      progress.style.width =
+          ((progressActive.length - 1) / (progressSteps.length - 1)) * 100 + "%";
+  }
+  $(".multiple-select").select2({
+      placeholder: "Selecciona Curso:"
+  });
+
+  
+
+  
+</script>
+<style>
+  :root {
+      --primary-color: #F38020 !important;
+  }
+
+
+  label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: white;
+  }
+
+  input {
+      display: block;
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid #ccc;
+      border-radius: 0.25rem;
+  }
+
+  .width-50 {
+      width: 50%;
+  }
+
+  .ml-auto {
+      margin-left: auto;
+  }
+
+  .text-center {
+      text-align: center;
+  }
+
+  /* Progressbar */
+  .progressbar {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      margin: 2rem 0 4rem;
+      color: white;
+  }
+
+  .progressbar::before,
+  .progress {
+      content: "";
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      height: 4px;
+      width: 100%;
+      background-color: #dcdcdc;
+      z-index: -1;
+      color: white;
+  }
+
+  .progress {
+      background-color: var(--primary-color);
+      width: 0%;
+      transition: 0.3s;
+      color: white;
+  }
+
+  .progress-step {
+      width: 2.1875rem;
+      height: 2.1875rem;
+      background-color: #dcdcdc;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+  }
+
+
+
+  .progress-step::after {
+      content: attr(data-title);
+      position: absolute;
+      top: calc(100% + 0.5rem);
+      font-size: 0.85rem;
+      color: white;
+  }
+
+  .progress-step-active {
+      background-color: var(--primary-color);
+      color: #f3f3f3;
+  }
+
+  .progress-step {
+      position: relative;
+  }
+
+  .progress-step img {
+      position: absolute;
+      width: 80%;
+      top: 8%;
+      left: 10%;
+      display: none;
+  }
+
+  /* Form */
+  .form {
+      width: 100%;
+      margin: 0 auto;
+      border: 1px solid #ccc;
+      border-radius: 0.35rem;
+      padding: 1.5rem;
+      background: url(../pix/plancapacitacion.png) rgba(0, 0, 0, 0.7);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-blend-mode: overlay;
+      filter: brightness(90%);
+  }
+
+  .form-step {
+      display: none;
+      transform-origin: top;
+      animation: animate 0.5s;
+  }
+
+  .form-step-active {
+      display: block;
+  }
+
+  .input-group {
+      margin: 2rem 0;
+  }
+
+  @keyframes animate {
+      from {
+          transform: scale(1, 0);
+          opacity: 0;
+      }
+
+      to {
+          transform: scale(1, 1);
+          opacity: 1;
+      }
+  }
+
+  /* Button */
+  .btns-group {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+  }
+
+  .btn {
+      padding: 0.75rem;
+      display: block;
+      text-decoration: none;
+      background-color: var(--primary-color);
+      color: #f3f3f3;
+      text-align: center;
+      border-radius: 1rem;
+      /* CAMBIOS DANIEL */
+      cursor: pointer;
+      transition: 0.3s;
+  }
+
+  .btn:hover {
+      box-shadow: 0 0 0 2px #fff, 0 0 0 3px var(--primary-color);
+  }
+
+
+  /* CAMBIOS DANIEL */
+  .barraProgreso{
+      position: absolute;
+      top: 31%;
+      width: 97%;
+      right: 1%;
+  }
+  progress {
+      -webkit-appearance: none;
+      appearance: none;
+      height: 0.75rem;
+  }
+  progress::-webkit-progress-bar {
+      background-color:#dcdcdc;
+  }
+  progress::-webkit-progress-value {
+      background-color: var(--primary-color);
+  }
+  #frmPrincipal img {
+      display: block;
+      width: 65%;
+      top: 12%;
+      left: 16%;
+  }
+
+  .displayVisible {
+      display: block !important;
+  }
+
+  .btn-next:hover .icon,
+  .btn-prev:hover .icon {
+      width: calc(100% - 0.6em);
+  }
+
+  .btn-next,
+  .btn-prev {
+      background: var(--primary-color);
+      padding-left: 1.2em;
+      border-radius: 0.9em;
+      border: none;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      position: relative;
+  }
+
+  .btn-prev {
+      justify-content: flex-end;
+  }
+
+  .btn-next .icon,
+  .btn-prev .icon {
+      background: white;
+      margin-left: 1em;
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 2.2em;
+      width: 2.2em;
+      border-radius: 0.7em;
+      right: 0.3em;
+      transition: all 0.3s;
+  }
+
+  .btn-prev .icon {
+      left: -0.7rem;
+  }
+
+  .btn-next .icon img,
+  .btn-prev .icon img {
+      width: 1.1em;
+      transition: transform 0.3s;
+  }
+
+  .btn-next:hover .icon img,
+  .btn-prev:hover .icon img {
+      transform: translateX(0.1em);
+  }
+
+  .btn-next:active .icon,
+  .btn-prev:active .icon {
+      transform: scale(0.95);
+  }
+</style>

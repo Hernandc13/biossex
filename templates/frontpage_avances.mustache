@@ -1,0 +1,134 @@
+<!-- Área de avances-->
+<section class="container">
+    <div class="row mb-biossex">
+            <div class="col-12">
+        <div class="contenedorAvances">
+            <br>
+            <p style="margin-top:1rem; margin-left:2rem; font-size: 1.5rem; text-align: left; color:#50565A;Cursor:pointer;">Mis avances y calificaciones +
+            </p>
+            <br>
+            <table class="table tableAvances">
+                <tbody class="bodyTableAvances">
+                    <tr>
+                        <td style="font-weight: bold;" class="col-3">Curso</td>
+                        <td style="font-weight: bold;" class="col-5">Avances</td>
+                        <td style="font-weight: bold;" class="col-1">Calificacion</td>
+                        <td style="font-weight: bold;" class="col-3">Certificados</td>
+                    </tr>
+                    {{#progressuserA}}
+                    <tr>
+                        <td scope="row">{{{ fullname }}}</td>
+                        <td>
+                            <center>
+                              <div class="progress-circle" data-progress="{{{ percentage }}}">
+                            </center>
+                        </td>
+                        <td class="grade">{{{ grade }}}</td>
+                        <td>
+                            {{#certificate}}
+                                {{#.}}
+                                    <a href="{{ . }}" target="_blank">
+                                        <button class="botonDescargar">Descargar</button>
+                                    </a>
+                                {{/.}}
+                            {{/certificate}}
+                        </td>
+                    </tr>
+                    {{/progressuserA}}
+                </tbody>
+            </table>
+            <!-- Boton disparador de la modal -->
+            <button type="button" class="btn btn-secondary btnAvances" style="background-color: #50565A; color:white;" data-toggle="modal"  data-target="#exampleModalLongavances"> Ver más</button>
+            <br><br>
+    
+        </div>
+    </div>
+    <!-- Ventana modal -->
+    <div class="modal fade" id="exampleModalLongavances" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                <div class="modal-dialog" role="document" style="min-width: 80%;">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLongTitle">Mis avances y calificaciones +</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <!-- Se agrega la Tabla de avances dentro de la ventana modal -->
+                    <div class="modal-body">
+                        <p style="margin-top:1rem; margin-left:2rem; font-size: 2rem; text-align: left; color:#50565A"></p>
+                        <br>
+                        <table class="table tableAvances">
+                            <tbody class="bodyTableAvances">
+                                <tr>
+                                    <td style="font-weight: bold;" class="col-3">Curso</td>
+                                    <td style="font-weight: bold;" class="col-5">Avances</td>
+                                    <td style="font-weight: bold;" class="col-1">Calificacion</td>
+                                    <td style="font-weight: bold;" class="col-3">Certificados</td>
+                                </tr>
+                                {{#progressuser}}
+                                <tr>
+                                    <td scope="row">{{{ fullname }}}</td>
+                                    <td>
+                                        <center>            
+                                            <div class="progress-circle" data-progress="{{{ percentage }}}">
+                                        </center>
+                                    </td>
+                                    <td class="grade">{{{ grade }}}</td>
+                                    <td>
+                                        {{#certificate}}
+                                            {{#.}}
+                                            <a href="{{ . }}" target="_blank">
+                                                <button class="botonDescargar">Descargar</button>
+                                            </a>
+                                            {{/.}}
+                                        {{/certificate}}
+                                    </td>
+                                </tr>
+                                {{/progressuser}}
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    </div>
+                  </div>
+                </div>
+            </div>
+    
+    </div>
+    </section>   
+    <style>
+        .containerCanvas {
+        width: min-content;
+        height: max-content;
+        position: relative;
+    }
+
+    .numberPorcentaje {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 2rem;
+    }
+
+    #arco {
+        transform: rotate(270deg);
+    }
+    .botonDescargar {
+        color: #ecf0f1;
+        font-size: 17px;
+        background-color: #F38020;
+        border: none;
+        border-radius: 5px;
+        padding: 10px;
+        box-shadow: 0px 6px 0px #C25D0A;
+        transition: all .1s;
+    }
+
+    .botonDescargar:hover {
+        box-shadow: 0px 2px 0px #C25D0A;
+        position: relative;
+        top: 2px;
+    }
+    </style>

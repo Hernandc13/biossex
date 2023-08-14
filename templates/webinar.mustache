@@ -1,0 +1,468 @@
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+<div class="section">
+  <div class="row">
+    <div class="col-12" >
+      <form action="{{wwwroot}}/theme/biossex/pages/webinar.php" method="post" class="form" >
+        <h3 class="text-center" id="plan" style="color:white;">Registro de Webinar</h3>
+        <!-- Progress bar -->
+        <div class="progressbar"  style="visibility:hidden" id="linea" >
+          <progress id="barraProgreso" class="barraProgreso" max="100" value="0"></progress> <!-- CAMBIOS DANIEL -->
+          <div class="progress-step progress-step-active" data-title="Puesto" id="frmPrincipal">
+         
+         
+          </div>
+
+        </div>
+        <!-- Steps -->
+        <div class="form-step form-step-active">
+          <center>
+            <button type="button" class="btn animate__animated animate__zoomInDown" onclick="modal();" id="btnModal"> <i class="fa fa-check-square-o" aria-hidden="true"></i> Registrar Webinar</button>
+          </center>
+         
+     
+        </div>
+       
+      <div class="col" style="margin-top: 2rem;">
+        <div class="row">
+          <div class="col-8">
+            <input type="text" name="txtbusqueda" id="txtbusqueda" placeholder="Buscar webinar...">
+          </div>
+          <div class="col-4">
+            <div class="row">
+              <div class="col-6">
+                <form action="{{wwwroot}}/theme/biossex/pages/webinar.php" method="post">
+                <button class="btn" type="submit"><i class="fa fa-search" aria-hidden="true"></i> Buscar Datos</button>
+                </form>
+              </div>
+              <div class="col-6">
+                <form action="{{wwwroot}}/theme/biossex/pages/webinar.php" method="post">
+                  <button class="btn" type="submit"><i class="fa fa-table" aria-hidden="true"></i> Ver todos</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+ 
+  </div>
+  <div class="col-12" style="margin-top: 2rem;">
+    <table class="table table-hover">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Título</th>
+          <th scope="col">Presentador</th>
+          <th scope="col">Link</th>
+          <th scope="col">Fecha</th>
+          <th scope="col">Operaciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#webinar}}
+        {{#.}}
+        <tr>
+          <th scope="row">{{id}}</th>
+          <td>{{titulo}}</td>
+          <td>{{presentador}}</td>
+          <td>{{link}}</td>
+          <td>{{fecha}}</td>
+          <td>
+            <div class="row">
+              <div class="col">
+                <a href="{{wwwroot}}/theme/biossex/pages/webinar.php?id={{id}}" class="btn" ><i class="fa fa-trash" aria-hidden="true"></i> Borrar</a>
+              </div>
+                <div class="col">
+                <a href="{{wwwroot}}/theme/biossex/pages/updateWebinar.php?id={{id}}" class="btn" ><i class="fa fa-pencil-square" aria-hidden="true"></i> Editar</a>
+              </div>
+            </div>
+          </td>
+        </tr>
+        {{/.}}
+        {{/webinar}}
+      </tbody>
+    </table>
+  </div>
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title text-center" id="exampleModalLabel">Registro Webinar</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form action="{{wwwroot}}/theme/biossex/pages/webinar.php" method="post">
+        <div class="modal-body">
+          <div class="input-group">
+            <label for="" style="color: #50565A;">Título:</label>
+           <input type="text" name="txtTitulo" id="txtTitulo">
+          </div>
+          <div class="input-group">
+            <label for="" style="color: #50565A;">Presentador:</label>
+            <input type="text" name="txtPresentador" id="txtPresentador">
+          </div>
+          <div class="input-group">
+            <label for="" style="color: #50565A;">Link:</label>
+            <input type="text" name="txtlink" id="txtlink">
+          </div>
+          <div class="input-group">
+            <label for="" style="color: #50565A;">Fecha:</label>
+            <input type="date" name="txtfecha" id="txtfecha">
+          </div>
+        </div>
+        <div class="modal-footer">
+           
+          <button type="submit" class="btn"> <i class="fa fa-check-circle" aria-hidden="true"></i> Registrar</button>
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+
+<script>
+  //carga las semanas seleccionadas     
+  function CargaSemanas() {
+      //obtenemos las semanas seleccionadas;
+      var semanas = document.getElementById("selectSemanas").value;
+      document.getElementById("frmPrincipal").style.display = "block";
+      document.getElementById("linea").style.visibility = "visible";
+      //ponemos visible el contenedor que almacena las semanas.
+      // iniciamos for para pintar solo las semanas que fueron seleccionadas.
+      for (var i = 1; i <= semanas; i++) {
+          document.getElementById("" + i).style.display = "block";
+          if (i == semanas) {
+              document.getElementById("btnform" + i).style.display = "block";
+              document.getElementById("next" + i).style.display = "none";
+          }
+      }
+      porcentajeVarianza = 100 / parseInt(semanas); /*CAMBIOS DANIEL*/
+  }
+  function modal() {
+      $('#exampleModal').modal('toggle');
+  }
+  function modalConfirmacion() {
+      $('#ModalConfirmacion').modal('toggle');
+  }
+  function modalSemana() {
+      $('#ModalSemana').modal('toggle');
+  }
+  function Cambiarmodal() {
+      for (var i = 1; i <= 15; i++) {
+          document.getElementById("" + i).style.display = "none";
+          document.getElementById("next" + i).style.display = "block";
+          document.getElementById("btnform" + i).style.display = "none";
+      }
+      $('#exampleModal').modal('toggle');
+  }
+  function Iniciar() {
+      var cod = document.getElementById("puesto").value;
+      document.getElementById("plan").innerHTML = "Puesto: " + cod;
+      document.getElementById("btnModal").style.display = "none";
+  }
+  //obtenemos la opcion del puesto seleccionada
+  document.getElementById("puesto").addEventListener("change", function () {
+      var cod = document.getElementById("puesto").value;
+      if (cod != "Seleccione un puesto") //si la opcion seleccionada es activo
+      {
+          var cod = document.getElementById("puesto").value;
+          document.getElementById("puestoselect").value = cod;
+          document.getElementById("next").style.display = "flex";
+          document.getElementById("btnCambio").style.display = "block";
+          Iniciar();
+      } else {
+          document.getElementById("next").style.display = "none";
+      }
+  });
+  function ShowSelected() {
+      /* Para obtener el valor */
+      var cod = document.getElementById("puesto").value;
+      document.getElementById("plan").innerHTML = "Puesto: " + cod;
+  }
+  function ShowSelectedAtras() {
+      /* Para obtener el valor */
+      document.getElementById("plan").innerHTML = "Plan de Capacitación";
+  }
+  const prevBtns = document.querySelectorAll(".btn-prev");
+  const nextBtns = document.querySelectorAll(".btn-next");
+  const progress = document.getElementById("progress");
+  const formSteps = document.querySelectorAll(".form-step");
+  const progressSteps = document.querySelectorAll(".progress-step");
+  const progressStepsIcon = document.querySelectorAll(".progress-step img"); /*CAMBIOS DANIEL*/
+  const progressBar = document.getElementById("barraProgreso"); /*CAMBIOS DANIEL*/
+  let formStepsNum = 0;
+  let porcentajeActual = 0, porcentajeVarianza = 0; /*CAMBIOS DANIEL*/
+  nextBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+          formStepsNum++;
+          porcentajeActual += porcentajeVarianza; /*CAMBIOS DANIEL*/
+          updateFormSteps();
+          updateProgressbar();
+      });
+  });
+  prevBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+          formStepsNum--;
+          porcentajeActual -= porcentajeVarianza; /*CAMBIOS DANIEL*/
+          updateFormSteps();
+          updateProgressbar();
+      });
+  });
+  function updateFormSteps() {
+      formSteps.forEach((formStep) => {
+          formStep.classList.contains("form-step-active") &&
+              formStep.classList.remove("form-step-active");
+      });
+      formSteps[formStepsNum].classList.add("form-step-active");
+  }
+  function updateProgressbar() {
+      progressSteps.forEach((progressStep, idx) => {
+          if (idx < formStepsNum + 1) {
+              progressStep.classList.add("progress-step-active");
+          } else {
+              progressStep.classList.remove("progress-step-active");
+          }
+      });
+      /* CAMBIOS DANIEL */
+      progressStepsIcon.forEach((progressStepsIcon, idx) => {
+          if (idx < formStepsNum + 1) {
+              progressStepsIcon.classList.add("displayVisible")
+          } else {
+              progressStepsIcon.classList.remove("displayVisible")
+          }
+          
+      });
+      progressBar.setAttribute('value', porcentajeActual);
+      /* CAMBIOS DANIEL */
+      
+      const progressActive = document.querySelectorAll(".progress-step-active");
+      progress.style.width =
+          ((progressActive.length - 1) / (progressSteps.length - 1)) * 100 + "%";
+  }
+  $(".multiple-select").select2({
+      placeholder: "Selecciona Curso:"
+  });
+  
+  
+</script>
+<style>
+  :root {
+      --primary-color:  #F38020 !important;
+  }
+  label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: white;
+  }
+  input {
+      display: block;
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid #ccc;
+      border-radius: 0.25rem;
+  }
+  .width-50 {
+      width: 50%;
+  }
+  .ml-auto {
+      margin-left: auto;
+  }
+  .text-center {
+      text-align: center;
+  }
+  /* Progressbar */
+  .progressbar {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      margin: 2rem 0 4rem;
+      color: white;
+  }
+  .progressbar::before,
+  .progress {
+      content: "";
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      height: 4px;
+      width: 100%;
+      background-color: #dcdcdc;
+      z-index: -1;
+      color: white;
+  }
+  .progress {
+      background-color: var(--primary-color);
+      width: 0%;
+      transition: 0.3s;
+      color: white;
+  }
+  .progress-step {
+      width: 2.1875rem;
+      height: 2.1875rem;
+      background-color: #dcdcdc;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+  }
+  .progress-step::after {
+      content: attr(data-title);
+      position: absolute;
+      top: calc(100% + 0.5rem);
+      font-size: 0.85rem;
+      color: white;
+  }
+  .progress-step-active {
+      background-color: var(--primary-color);
+      color: #f3f3f3;
+  }
+  .progress-step {
+      position: relative;
+  }
+  .progress-step img {
+      position: absolute;
+      width: 80%;
+      top: 8%;
+      left: 10%;
+      display: none;
+  }
+  /* Form */
+  .form {
+      width: 100%;
+      margin: 0 auto;
+      border: 1px solid #ccc;
+      border-radius: 0.35rem;
+      padding: 1.5rem;
+      background: url(../pix/web4.webp) rgba(0, 0, 0, 0.7);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-blend-mode: overlay;
+      filter: brightness(90%);
+  }
+  .form-step {
+      display: none;
+      transform-origin: top;
+      animation: animate 0.5s;
+  }
+  .form-step-active {
+      display: block;
+  }
+  .input-group {
+      margin: 2rem 0;
+  }
+  @keyframes animate {
+      from {
+          transform: scale(1, 0);
+          opacity: 0;
+      }
+      to {
+          transform: scale(1, 1);
+          opacity: 1;
+      }
+  }
+  /* Button */
+  .btns-group {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+  }
+  .btn {
+      padding: 0.75rem;
+      display: block;
+      text-decoration: none;
+      background-color: var(--primary-color);
+      color: #f3f3f3;
+      text-align: center;
+      border-radius: 1rem;
+      /* CAMBIOS DANIEL */
+      cursor: pointer;
+      transition: 0.3s;
+  }
+  .btn:hover {
+      box-shadow: 0 0 0 2px #fff, 0 0 0 3px var(--primary-color);
+  }
+  /* CAMBIOS DANIEL */
+  .barraProgreso{
+      position: absolute;
+      top: 31%;
+      width: 97%;
+      right: 1%;
+  }
+  progress {
+      -webkit-appearance: none;
+      appearance: none;
+      height: 0.75rem;
+  }
+  progress::-webkit-progress-bar {
+      background-color:#dcdcdc;
+  }
+  progress::-webkit-progress-value {
+      background-color: var(--primary-color);
+  }
+  #frmPrincipal img {
+      display: block;
+      width: 65%;
+      top: 12%;
+      left: 16%;
+  }
+  .displayVisible {
+      display: block !important;
+  }
+  .btn-next:hover .icon,
+  .btn-prev:hover .icon {
+      width: calc(100% - 0.6em);
+  }
+  .btn-next,
+  .btn-prev {
+      background: var(--primary-color);
+      padding-left: 1.2em;
+      border-radius: 0.9em;
+      border: none;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      position: relative;
+  }
+  .btn-prev {
+      justify-content: flex-end;
+  }
+  .btn-next .icon,
+  .btn-prev .icon {
+      background: white;
+      margin-left: 1em;
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 2.2em;
+      width: 2.2em;
+      border-radius: 0.7em;
+      right: 0.3em;
+      transition: all 0.3s;
+  }
+  .btn-prev .icon {
+      left: -0.7rem;
+  }
+  .btn-next .icon img,
+  .btn-prev .icon img {
+      width: 1.1em;
+      transition: transform 0.3s;
+  }
+  .btn-next:hover .icon img,
+  .btn-prev:hover .icon img {
+      transform: translateX(0.1em);
+  }
+  .btn-next:active .icon,
+  .btn-prev:active .icon {
+      transform: scale(0.95);
+  }
+</style>

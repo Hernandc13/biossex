@@ -1,0 +1,227 @@
+<!– Área de imagen de perfil y bienvenida–>
+        <section class="container">
+            <div class="row">
+              <div class="col-1.8">
+                <img class="imgstyle" src="{{pixuser}}" data-toggle="modal" data-target="#exampleModal">
+              </div>
+              <div class="col" style="margin-top: 2rem;">
+                <h4 style="color: #50565A;"> Bienvenido <span style="color: #fff;"><b>{{nameuser}}</b></span></h4>
+                <h4 style="color:#F38020;"><b>{{saludo}}</b></h4>
+                <h4 style="color: #50565A;">{{fielpuesto}}</h4>
+              </div>
+            </div> 
+        </section>
+
+        <section class="container contmenu cont" style="padding:-1rem 0 0 2rem;">
+        <!– Área de texto e Imagen –>
+        <div class="row" id="containertxtvideo">
+            <div class="col-sm-12 col-md-12 col-lg-12 col-xl-6" style="text-align: justify;">
+                {{{TextoWelcome}}}
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-12 col-xl-6" >
+                <div class="Video">
+                    <div class="VideoContent">
+                        {{{VideoWelcome}}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+      </section>
+
+  <!-- menú-->
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+              <h5 style="margin-left: 10rem;">Imagen anterior</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div style="padding: 1rem;">
+          <div class="col-12">
+            <center>
+              <img class="imgstyle" src="{{pixuser}}">
+            </center>
+          </div>
+          <br>
+          <form id="formularioImagen" method="post" enctype="multipart/form-data" action="{{wwwroot}}/?redirect=0">
+                    <main class="main_full">
+	                        <div class="containerUpload">
+	                              	<div class="panel">
+			                        <div class="button_outer">
+				                            <div class="btn_upload">
+				                        	<input type="file" id="upload_file" name="foto">
+					                          Subir Imagen
+				                                    </div>
+			                          	<div class="processing_bar"></div>
+			                              	<div class="success_box"></div>
+			                                  </div>
+		                                          </div>
+	                      	<div class="error_msg"></div>
+	                    	<div class="uploaded_file_view" id="uploaded_view">
+		                    	<span class="file_remove">X</span>
+	                        	</div>
+	                          </div>
+                  </main>
+                  <center>
+                    <button type="submit"  class="btn" style="color:white;" >Actualizar Imagen</button>
+                  </center>
+          </form>
+         <!---   <iframe src="http://localhost/biossex/theme/biossex/pages/file.php" style="width: 500px; height: 500px;" name="formularios"></iframe>-->
+      <!---http://localhost/biossex/user/editadvanced.php?id=2&course=1 -->
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script>
+var btnUpload = $("#upload_file"),
+		btnOuter = $(".button_outer");
+	btnUpload.on("change", function(e){
+		var ext = btnUpload.val().split('.').pop().toLowerCase();
+		if($.inArray(ext, ['gif','png','jpg','jpeg']) == -1) {
+			$(".error_msg").text("No es una imagen...");
+		} else {
+			$(".error_msg").text("");
+			btnOuter.addClass("file_uploading");
+			setTimeout(function(){
+				btnOuter.addClass("file_uploaded");
+			},3000);
+			var uploadedFile = URL.createObjectURL(e.target.files[0]);
+			setTimeout(function(){
+				$("#uploaded_view").append('<img src="'+uploadedFile+'" />').addClass("show");
+			},3500);
+		}
+	});
+	$(".file_remove").on("click", function(e){
+		$("#uploaded_view").removeClass("show");
+		$("#uploaded_view").find("img").remove();
+		btnOuter.removeClass("file_uploading");
+		btnOuter.removeClass("file_uploaded");
+	});
+  function enviar(){
+    var parametros= new FormData($("#formularioImagen")[0]);
+      $.ajax({
+	              data:parametros,
+	              url:"{{wwwroot}}/theme/biossex/layout/frontpage.php",
+	              type:"POST",
+	              contentType:false,
+	              processData:false,
+	              beforesend:function(){
+        },
+          success: function(response){
+	              console.log(response);
+                  }
+              });
+  }
+function mostrar(){
+}
+</script>
+    <style>
+        img{
+            Cursor:pointer;
+        }
+        .cont{
+        display: flex;
+        position: relative;
+    }
+    .menuweb{
+      margin-top: -13rem;
+        width: 30%;
+        height: 32rem;
+        background-color: white;
+        position: relative;
+        left: 8%;
+        display: block;
+        transition: all 0.5s ease;
+        border-radius: 1rem;
+    }
+    .flecha{
+        position: absolute;
+        width: 4rem;
+        height: 7rem;
+        background-color: #50565A;
+        right: 14.5%;
+        z-index: 2;
+        transition: all 0.5s ease;
+        text-align: center;
+        font-size: 4.5rem;
+        border-radius: 5rem 0 0 5rem;
+        color: white;
+        margin-top: -1rem;
+    }
+    .gris{
+      height: 320px;
+    width: 221px;
+margin: 0 auto;
+display:block;
+overflow:auto;
+    }
+    .btn:visited {
+            text-transform: uppercase;
+            text-decoration: none;
+            padding: 15px 40px;
+            display: inline-block;
+            transition: all .2s;
+            position: absolute;
+        }
+        
+       
+        .btn:active {
+            transform: translateY(-1px);
+            border-radius: 0.2rem;
+        }
+        
+        .btn {
+            background-color: #F38020;
+            color: black;
+            border-radius: 0.2rem;
+        }
+        
+        .btn::after {
+            content: "";
+            display: inline-block;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            transition: all .4s;
+        }
+        
+        .btn::after {
+            background-color: transparent;
+        }
+        
+        .btn:hover::after {
+            transform: scaleX(1.4) scaleY(1.6);
+            opacity: 0;
+        }
+        
+        .btn{
+            animation: moveInBottom 5s ease-out;
+            animation-fill-mode: backwards;
+        }
+    </style>
+<script>
+  const menuweb = document.getElementById('menuweb');
+  const flecha = document.getElementById('flecha');
+  let active = true;
+  function mostrar(){
+      active = !active
+      if(active != true){
+        menuweb.style.display = 'block';
+          flecha.style.right = "14.5%"
+      }else{
+        menuweb.style.display = 'none';
+          flecha.style.right = "-8%"
+      }
+  };
+</script>

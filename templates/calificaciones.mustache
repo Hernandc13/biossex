@@ -1,0 +1,161 @@
+<section>
+    <div class="row">
+        <div class="col-12">
+            <p class="pTitulo">Calificaciones</p>
+            <div style="border-radius: 5px;margin-top: -2rem;" class="containSubCalificaciones">
+                <i style="color: #F38020; font-size: 4rem;" class="fa fa-check-circle-o" aria-hidden="true"></i>
+                <p class="ml-2">Completaste todas las taraes pendientes</p>
+            </div>
+            <div>
+                <p class="pTitulo borderBottom">Cómo funciona</p>
+            </div>
+            <div class="lineaC"></div>
+        </div>
+    </div>
+</section>
+<br><br>
+<section>
+    <div class="row">
+            <div class="col-12 table-responsive">
+                <table class="table table-hover tableCalificaciones">
+                    <thead>
+                        <tr>
+                            <th scope="col"><p>Elemento</p></th>
+                            <th scope="col"><p>Estado</p></th>
+                            <th scope="col"><p>Fecha límite</p></th>
+                            <th scope="col"><p>Peso</p></th>
+                            <th scope="col"><p>Calificacion</p></th>
+                        </tr>
+                    </thead>
+                        {{#data}}
+                        <tr>
+                            <td style="color: #F38020;"><i style="color: #F38020;" class="fa fa-lock" aria-hidden="true"></i> {{actividad}}</td>
+                            <td><i style="color: #F38020;" class="fa fa-check-square-o" aria-hidden="true"></i> {{estatus}}</td>
+                            <td>{{fecha}}</td>
+                            <td>{{peso}} %</td>
+                            <td>{{final}} </td>
+                          </tr>
+                        {{/data}}
+                    </tbody>
+                </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 contPromedio">
+            {{#data2}}
+            <p class="textPromedio">Promedio final: <span>{{promedio}}%</span> </p>
+            {{/data2}}
+        </div>
+    </div>
+</section>
+<style>
+    .pTitulo{
+    color: #50565A;
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+.containSubCalificaciones{
+    display: flex;
+    align-items: center;
+    background-color: rgb(190, 190, 190);
+    padding: 0.7rem;
+}
+.containSubCalificaciones img{
+    width: 10%;
+}
+.containSubCalificaciones p{
+    margin: 0;
+}
+.tableCalificaciones{
+    text-align: center;
+}
+.tableCalificaciones thead tr th{
+    background-color: #50565A;
+    color: #fff;
+    font-weight: normal;
+}
+.tableCalificaciones thead tr th{
+    font-size: 1.2rem;
+}
+.tableCalificaciones tbody tr td img, .tableCalificaciones tbody tr th img{
+    width: 45%;
+}
+.pElemento{
+    color: #F38020;
+    font-weight: normal;
+    margin: 0.5rem 0;
+}
+.pElementoDos{
+    font-weight: lighter;
+    color: grey;
+    margin: 0.5rem 0; 
+}
+.tableCalificaciones tbody tr td p{
+    font-size: 1rem;
+}
+.contPromedio{
+    margin-top: 1.5rem;
+    text-align: right;
+}
+.textPromedio{
+    font-size: 1.4rem;
+}
+.textPromedio span{
+    color: #F38020;
+}
+@media (min-width: 600px){
+    .containSubCalificaciones img{
+        width: 6%;
+    }
+    .containSubCalificaciones p{
+        font-size: 1.4rem;
+        margin-left: 0.5rem;
+        padding: 1rem;
+    }
+    .pTitulo{
+        font-size: 2rem;
+    }
+    .tableCalificaciones tbody tr td img, .tableCalificaciones tbody tr th img{
+        width: 15%;
+    }
+    .tableCalificaciones{
+        text-align: left;
+    }
+    .tableCalificaciones tbody tr td p{
+        display: inline-block;
+    }
+    .containPElementos{
+        display: inline-block;
+    }
+    .tableCalificaciones tbody tr td p{
+        font-size: 1.2rem;
+    }
+    .pElemento, .pElementoDos{
+        font-size: 1.2rem;
+        margin: 0 0.5rem;
+    }
+    .tableCalificaciones tbody tr th{
+        display: flex;
+    }
+}
+@media (min-width: 900px){
+    .containSubCalificaciones img{
+        width: 4%;
+    }
+    .containSubCalificaciones{
+        padding: 0 1rem;
+    }
+    .pTitulo{
+        font-size: 1.6rem;
+        padding: 1.6rem 0;
+    }
+}
+.lineaC{
+    border-bottom: -5rem;
+    width: 100%;
+    height: 3px;
+    background-color: #F38020;
+    margin-top: -2rem;
+
+}
+</style>

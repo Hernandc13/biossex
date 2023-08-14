@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>porcentaje</title>
+</head>
+<body>
+    <div class="container">
+        <progress id="barraProgreso" class="barra" max="100" value="0"></progress>
+        <p><span id="numPorcentaje">0</span> % Completado</p>
+    </div>
+
+    <input type="number" id="inputPorcentaje">
+    <button id="btnInsertar">Porcentaje</button>
+<!--     <button id="btnMas">+</button>
+    <button id="btnMenos">-</button> -->
+
+    <style>
+        .container {
+            width: min-content;
+            text-align: center;
+        }
+        progress {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 12rem;
+            height: 1rem;
+        }
+        progress::-webkit-progress-bar {
+            background-color: #fff;
+            border-radius: 2px;
+            border: 1.5px #F38020 solid;
+        }
+        progress::-webkit-progress-value {
+            background-color: #F38020;
+            border-radius: 2px;
+            background-size: 35px 20px, 100% 100%, 100% 100%;
+        }
+        
+    </style>
+
+    <script src="index.js"></script>
+</body>
+</html>

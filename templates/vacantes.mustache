@@ -1,0 +1,49 @@
+<section style="margin-bottom: 2rem;">
+    <h4 style="color: #50565A;"><b>Programa de referidos</b></h4>
+</section>
+<div class="row row-cols-1 row-cols-md-2 g-4">
+    {{#vacantes}}
+    {{#.}}
+    <div class="col">
+        <div class="card">
+            <div class="Vacante">
+                <div class="VacanteContent">
+                    <img src="{{url}}" alt="" srcset="" class="oscurecer-img">
+                </div>
+            </div>
+            <div class="texto-encima">Buscamos</div>
+            <div class="texto-encima1">{{{title}}}</div>
+            <div class="card-body" style="background-color: #E5E5E5 ;">
+                <h5 class="card-title" style=" color: #F38020;">Requisitos</h5>
+                <article>
+                    <section class="seccion2">
+                        {{{texto}}}
+                    </section>
+                </article>
+                <div  class="lineavacantes"></div>
+            </div>
+            <form>
+                <br>
+                <center>
+                    <h6 style="color: #50565A;">¿Conoces a alguien?</h6>
+                    <button type="submit" class="btn {{visibleRefiere}}" style="background-color: #50565A; color:white; border-color: #50565A; border-radius: 1rem;">
+                       <a  style="text-decoration: none; color: white;" href="{{refiere}}" target="_blank" rel=""> Refiere </a> </button>
+
+                    <button type="submit" class="btn {{visibleInterna}}" style="background-color: #50565A; color:white; border-color: #50565A;  border-radius: 1rem;">
+                       <a style="text-decoration: none; color: white;" href="{{interna}}" target="_blank" rel="">Postulación Interna</a></button>
+                </center>
+                <br>
+            </form>
+        </div>
+    </div>
+    {{/.}}
+    {{/vacantes}}
+</div>
+<style>
+    .block{
+        display: inline-block !important;
+    }
+    .none{
+        display: none !important;
+    }
+</style>

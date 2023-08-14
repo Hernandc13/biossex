@@ -1,0 +1,123 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <p class="pTituloTareas">Tareas del curso</p>
+        </div>
+    </div>
+    {{#data}}
+    <div class="row">
+        <div class="col-12 mb-4">
+            <p class="mb-0">
+                <a class="aTareas" data-toggle="collapse" href="#evaluacionM1" role="button" aria-expanded="false"
+                    aria-controls="evaluacionM1">
+                    <i class="fa fa-chevron-down" aria-hidden="true" style="color: #F38020;"></i> {{actividad}}
+                </a>
+            </p>
+            <div class="collapse borderTop" id="evaluacionM1">
+                <div class="ml-5 mt-4">
+                    <div class="lineaT"></div>
+                    <br>
+                    <p><b>{{nombre_seccion}}</b></p>
+                    <br>
+                    <div class="containFechaTareas">
+                        <center>
+                            <i style="color: #F38020; padding: 1rem; margin-top: -1rem; font-size: 2rem;" class="fa fa-lock" aria-hidden="true"></i>  
+                        </center>
+                        <P style="border-radius: 1rem;" class="pFechaHoraTareas">Vence: {{fecha}}</P>
+                        <P><b><a href="{{wwwroot}}/mod/assign/view.php?id={{link}}">Ir a la Tarea: {{actividad}}</a></b></P>
+                    </div>
+                    <p class="pCalifiTareas">Calificación: <b style="color: #F38020;">{{calificacion}}%</b></p>
+                </div>
+            </div>
+        </div>
+    </div>
+{{/data}} 
+</div>
+<style>
+    /* iNICIO - CSS: PAGINA 6, TAREAS  */ 
+    .lineaT{
+        background-color: #F38020;
+        height: 3px;
+    }
+.pTituloTareas{
+    color: #50565A;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.aTareas{
+    text-decoration: none !important;
+    color: #50565A !important;
+    font-weight: bold;
+    font-size: 1rem;
+}
+.aTareas img{
+    width: 8%;
+}
+.aTareas span{
+    font-weight: lighter;
+    font-size: .8rem;
+}
+.pSubTareas{
+    color: #50565A;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+.pFechaHoraTareas{
+    background-color: rgb(190, 190, 190);
+    display: inline-block;
+    padding: 0.6rem;
+}
+.containFechaTareas{
+    position: relative;
+}
+.containFechaTareas img{
+    position: absolute;
+    width: 15%;
+    left: -3rem;
+}
+.containFechaTareas, .pCalifiTareas{
+    font-size: 0.8rem;
+}
+@media (min-width: 600px) {
+    .aTareas{
+        font-size: 1.2rem;
+    }
+    .aTareas img{
+        width: 4.5%;
+    }
+    .aTareas span{
+        float: right;
+    }
+    .containFechaTareas{
+        display: flex;
+        align-items: center;
+    }
+    .pFechaHoraTareas{
+        margin-right: 1rem;
+    }
+    .containFechaTareas img{
+        width: 6%;
+        bottom: 1rem;
+    }
+}
+@media (min-width: 900px){
+    .containFechaTareas img{
+        width: 4.5%;
+    }   
+}
+@media (min-width: 1200px){
+    .pSubTareas{
+        font-size: 1.1rem;
+    }  
+    .containFechaTareas, .pCalifiTareas{
+        font-size: 0.95rem;
+    }
+    .aTareas span{
+        font-size: 0.9rem;
+    }
+    .aTareas{
+        font-size: 1.3rem;
+    }
+}
+/* FIN - CSS: PAGINA 6, TAREAS  */  
+</style>
