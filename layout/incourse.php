@@ -27,6 +27,8 @@ defined('MOODLE_INTERNAL') || die();
 user_preference_allow_ajax_update('drawer-open-nav', PARAM_ALPHA);
 user_preference_allow_ajax_update('sidepre-open', PARAM_ALPHA);
 
+$logoFooter= $CFG->wwwroot . "/theme/biossex/pix/Logobiossmann.png";
+
 require_once($CFG->libdir . '/behat/lib.php');
 
 if (isloggedin()) {
@@ -69,6 +71,7 @@ $templatecontext = [
     'navdraweropen' => $navdraweropen,
     'draweropenright' => $draweropenright,
     'regionmainsettingsmenu' => $regionmainsettingsmenu,
+    'logoFooter'=>$logoFooter,
     'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu)
 ];
 
