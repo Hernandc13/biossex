@@ -1,127 +1,97 @@
-
-         <!– Área Mi plan de capacitación –>
-         <div class="container containCursos">
+        <!– Área Mi plan de capacitación –>
+          <section class="container containCursos">
             <div class="row">
-                <div class="col-12">
-                    <h4><b id="mas">Cursos habilitados + </b></h4>
-                    <div class="container containCardCursos">
-                        <div class="row">
-                        {{#progressuserA}}
-                        {{#.}}
-                            <div class="cardCurso col-4">
-                            <p class="titleCardCurso"> <a  style="text-decoration:none; color:white;" href="{{wwwroot}}/course/view.php?id={{id}}"> {{fullname}}</a></p>
-                            <div class="footerCardCurso">
-                                <p class="subtitleCardCurso">{{fullname}}</p>
-                                <progress id="file" max="100" value="{{ percentage }}">{{ percentage }} %</progress>
-                                <p class="progressNumber">{{ percentage }} % completado</p>
-                            </div>
-                            </div>
-                        {{/.}}
-                       {{/progressuserA}}
-                        </div>
+              <div class="col-12">
+                <h4><b id="mas">Cursos habilitados + </b></h4>
+                <div class="container containCardCursos">
+                  <div class="row gridContainCursos">
+                    {{#progressuserA}}
+                    {{#.}}
+                    <div class="cardCurso">
+                      <p class="titleCardCurso"> <a style="text-decoration:none; color:white;"
+                          href="{{wwwroot}}/course/view.php?id={{id}}"> {{fullname}}</a></p>
+                      <div class="footerCardCurso">
+                        <p class="subtitleCardCurso">{{fullname}}</p>
+                        <progress class="progressCursos" max="100" value="{{ percentage }}">{{ percentage }} %</progress>
+                        <p class="progressNumber">{{ percentage }} % completado</p>
+                      </div>
                     </div>
+                    {{/.}}
+                    {{/progressuserA}}
+                  </div>
                 </div>
+              </div>
             </div>
             <div class="row contButtonMas">
-                <div class="col-12">
-                    <button data-toggle="modal" data-target="#exampleModalLong">Ver más</button>
-                </div>
+              <div class="col-12">
+                <button data-toggle="modal" data-target="#exampleModalLong">Ver más</button>
+              </div>
             </div>
-        </div>
-     
-     <!-- Ventana modal -->
-     <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-         <div class="modal-dialog" role="document" style="min-width: 80%;">
-           <div class="modal-content">
-             <div class="modal-header">
-               <h5 class="modal-title" id="exampleModalLongTitle">Todos los cursos</h5>
-               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                 <span aria-hidden="true">&times;</span>
-               </button>
-             </div>
-             <!-- Se agrega la Tabla de avances dentro de la ventana modal -->
-             <div class="modal-body">
-                <div class="container containCursos">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="container containCardCursos">
-                                <div class="row">
-                                {{#progressuser}}
-                                {{#.}}
-                                    <div class="cardCurso col-4">
-                                    <p class="titleCardCurso"> <a  style="text-decoration:none; color:white;" href="{{wwwroot}}/course/view.php?id={{id}}"> {{fullname}}</a></p>
-                                    <div class="footerCardCurso">
-                                        <p class="subtitleCardCurso">{{fullname}}</p>
-                                        <progress id="file" max="100" value="{{ percentage }}">{{ percentage }} %</progress>
-                                        <p class="progressNumber">{{ percentage }} % completado</p>
-                                    </div>
-                                    </div>
-                                {{/.}}
-                               {{/progressuser}}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+          </section>
+        
+          <!-- Ventana modal -->
+          <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document" style="min-width: 80%;">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLongTitle">Todos los cursos</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
                 </div>
-         </div>
-           </div>
-         </div>
-     </div>
-         <script>
-              /* Codigo necesaio para funcionamiento */
-              let numSemanas = document.getElementById('capacitacion').children.length;
-                 let semanas = document.querySelectorAll('.semana');
-                 numSemanas -= 5;
-                 semanas.forEach((semana, idx) => {
-                     semana.innerText = "0"+(idx+1) ;
-                 });
-                 if(numSemanas <= 4){
-                     document.getElementById('unaFila').style.display = 'block';
-                 }else if(numSemanas <= 8){
-                    document.getElementById('dosFilas').style.display = 'block';
-                 }else if(numSemanas <= 12){
-                     document.getElementById('tresFilas').style.display = 'block';
-                 }
-                 else if(numSemanas <= 16){
-                     document.getElementById('cuatroFilas').style.display = 'block';
-                 }
-       
-                    /* Codigo necesaio para funcionamiento */
-              let numSemanasmax = document.getElementById('capacitacionmax').children.length;
-                 
-                 let semanasmax = document.querySelectorAll('.semanamax');
-                 numSemanasmax -= 8;
-                 semanasmax.forEach((semana, idx) => {
-                     semana.innerText = "0"+(idx+1) ;
-                 });
-                 
-                 if(numSemanasmax <= 4){
-                     document.getElementById('unaFilaMax').style.display = 'block';
-                 }else if(numSemanasmax <= 8){
-                     document.getElementById('dosFilasMax').style.display = 'block';
-                 }else if(numSemanasmax<= 12){
-                     document.getElementById('tresFilasMax').style.display = 'block';
-                 }else if(numSemanasmax<= 16){
-                     document.getElementById('cuatroFilasMax').style.display = 'block';
-                 }else if(numSemanasmax<= 20){
-                     document.getElementById('cincoFilasMax').style.display = 'block';
-                 }else if(numSemanasmax<= 24){
-                     document.getElementById('seisFilasMax').style.display = 'block';
-                 }else if(numSemanasmax<= 28){
-                     document.getElementById('sieteFilasMax').style.display = 'block';
-                 }
-         </script>
-       <style>
-         #mas{
-                 Cursor:pointer;
-         }
-         .modal-body {
-         position: relative !important;
-         flex: 1 1 auto !important;
-         padding: 0 !important;
-     }
-     .textoencima{
-        text-align: center !important;
-     }
-     
-       </style>
+                <!-- Se agrega la Tabla de avances dentro de la ventana modal -->
+                <div class="modal-body">
+                  <div class="container containCursos">
+                    <div class="row">
+                      <div class="col-12">
+                        <h4><b id="mas">Cursos habilitados + </b></h4>
+                        <div class="container containCardCursos">
+                          <div class="row gridContainCursos">
+                            {{#progressuserA}}
+                            {{#.}}
+                            <div class="cardCurso">
+                              <p class="titleCardCurso"> <a style="text-decoration:none; color:white;"
+                                  href="{{wwwroot}}/course/view.php?id={{id}}"> {{fullname}}</a></p>
+                              <div class="footerCardCurso">
+                                <p class="subtitleCardCurso">{{fullname}}</p>
+                                <progress class="progressCursos" max="100" value="{{ percentage }}">{{ percentage }} %</progress>
+                                <p class="progressNumber">{{ percentage }} % completado</p>
+                              </div>
+                            </div>
+                            {{/.}}
+                            {{/progressuserA}}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <script>
+            const barProgress = document.querySelectorAll('.progressCursos');
+
+            barProgress.forEach(progressBar => {
+                    if(progressBar.value >= 0 && progressBar.value <= 30){
+                        progressBar.classList.add("red");
+                    } else if(progressBar.value >= 31 && progressBar.value <= 60){
+                        progressBar.classList.add("orange");
+                    } else if(progressBar.value >= 61 && progressBar.value <= 99){
+                        progressBar.classList.add("yellow");
+                    } else if(progressBar.value == 100){
+                        progressBar.classList.add("green");
+                    }
+                
+                
+            });
+
+          </script>
+          <style>
+            .modal-body {
+              position: relative !important;
+              flex: 1 1 auto !important;
+              padding: 0 !important;
+            }
+          </style>

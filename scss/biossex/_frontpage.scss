@@ -702,7 +702,7 @@ body {
   }
   
   .titleCardCurso{
-    background-color: #a5a5a5;
+    background-color: #B8B9BB;
     color: #fff;
     font-size: 2rem;
     font-weight: bold;
@@ -711,6 +711,16 @@ body {
     align-items: center;
     justify-content: center;
     text-align: center;
+    height: min-content;
+    padding: 1.5rem;
+  }
+
+  .gridContainCursos{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+        padding: 0 1rem;
+        align-items: center;
   }
 
   .subtitleCardCurso{
@@ -722,15 +732,45 @@ body {
     align-items: center;
     flex-direction: column;
     padding: 0.25rem 0;
-    background-color: rgb(105, 105, 105);
+    background-color: #505559;
     color: #fff;
     font-weight:500;
   }
   
   .progressNumber{
-    font: 0.75rem;
+    font-size: 0.75rem;
     font-weight: 100;
   }
+
+  .progressCursos{
+    width: 75%;
+    height: 1rem;
+    margin: 0 auto;
+    background-color: transparent;
+  }
+
+  .progressCursos::-webkit-progress-bar {
+        background-color: white;
+        border: 2px solid white;
+        border-radius: 7px;
+    }
+    .progressCursos::-webkit-progress-value {
+        background-color: #f38020;
+        border-radius: 7px;
+    }
+
+    .red::-webkit-progress-value{
+        background-color: #EF2222;
+    }
+    .orange::-webkit-progress-value{
+        background-color: #F58220;
+    }
+    .yellow::-webkit-progress-value{
+        background-color: #F9DE16;
+    }
+    .green::-webkit-progress-value{
+        background-color: #3FD850;
+    }
   
   .contButtonMas{
     text-align: center;
@@ -947,6 +987,7 @@ progress::-moz-progress-bar {
     object-position: center;
     border-radius: 1rem  0rem 0 1rem;
     margin-left: 4px !important;
+    object-fit: cover;
 }
 
 .pPodcastTexto {
