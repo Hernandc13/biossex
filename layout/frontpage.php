@@ -116,6 +116,7 @@ if (isloggedin()) {
     //Consulta para acceder al texto registrado en la base de datos.
     $value = get_config('theme_biossex', 'TextoWelcome');
     $valueVideo = get_config('theme_biossex', 'VideoWelcome');
+    $valueVideo2 = get_config('theme_biossex', 'VideoTutorial');
     //Obtenemos la cantidad de imagenes que se van a registrar(slidercount)
     $valueSlidercount = get_config('theme_biossex', 'slidercount');
     //Recorrer los registros de la base de datos
@@ -132,10 +133,10 @@ if (isloggedin()) {
     $urlPortada = moodle_url::make_pluginfile_url($syscontext->id, $component, $filearea, $itemid, null, $filepath);
 
     //Se verifica que se tenga una imagen para el carrucel webinar
-    $sqlExist = "SELECT * from mdl_config_plugins where name='imagenwebinar' and value=''";
+    $sqlExist = "SELECT * from mdl_config_plugins where plugin='theme_biossex' and name='imagenwebinar' and value=''";
     $ConsultaExist = $DB->get_records_sql($sqlExist);
     if(count($ConsultaExist)>0){
-        $urlimgWebinar ="https://www.biossex.com/statics/images/proposito.jpg";
+        $urlimgWebinar ="https://www.biossmann.com/statics/images/proposito.jpg";
          
     }else{
         //Se obtiene la imagen del carrucel webinars
@@ -170,21 +171,6 @@ if (isloggedin()) {
         $resultado = $data->data;
         if($resultado==""){
             $resultado="Sin Puesto";
-            $resvacio="Sin Plan de Capacitación";
-        }else{
-               //Obtenemos el plan de capacitación correspondiente al tipo de puesto del usuario
-//Consulta a base de datos CAPACITACIÓN
-    $ConsultaCapacitacion=[];
-
-        global $semana;
-        foreach ($ConsultaCapacitacion as $semana) {
-            $semana->cursos = array_values($DB->get_records_sql("SELECT id,fullname FROM mdl_course WHERE id IN ($semana->cursoid)"));
-            $semana->aux=$semana->semanas;
-        }
-    
-
-    $concapacitacion = array_values($ConsultaCapacitacion);
-    $concapacitacionmax = array_values(array_splice($ConsultaCapacitacion, 0, 6));
         }
     } 
  
@@ -242,9 +228,10 @@ if (isloggedin()) {
         'alertcontent' => $alertcontent,
         'nameuser' => $nameuser,
         'progressuser' => $progressuser,
-        'progressuserA' => array_splice($progressuser, 0, 3),
+        'progressuserA' => array_splice($progressuser, 0, 6),
         'TextoWelcome' => $value,
         'VideoWelcome' => $valueVideo,
+        'VideoTutorial'=>$valueVideo2,
         'Cantidad' => $valueSlidercount,
         'valores' => $bdCarrucel,
         'TextoPortada' => $valueTextoPortada,

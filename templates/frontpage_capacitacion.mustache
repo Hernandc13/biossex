@@ -6,18 +6,18 @@
                     <h4><b id="mas">Cursos habilitados + </b></h4>
                     <div class="container containCardCursos">
                         <div class="row">
-                        {{#curses}}
+                        {{#progressuserA}}
                         {{#.}}
                             <div class="cardCurso col-4">
-                            <p class="titleCardCurso">{{fullname}}</p>
+                            <p class="titleCardCurso"> <a  style="text-decoration:none; color:white;" href="{{wwwroot}}/course/view.php?id={{id}}"> {{fullname}}</a></p>
                             <div class="footerCardCurso">
                                 <p class="subtitleCardCurso">{{fullname}}</p>
-                                <progress id="file" max="100" value="70">70%</progress>
-                                <p class="progressNumber">100% completado</p>
+                                <progress id="file" max="100" value="{{ percentage }}">{{ percentage }} %</progress>
+                                <p class="progressNumber">{{ percentage }} % completado</p>
                             </div>
                             </div>
                         {{/.}}
-                        {{/curses}}
+                       {{/progressuserA}}
                         </div>
                     </div>
                 </div>
@@ -34,34 +34,35 @@
          <div class="modal-dialog" role="document" style="min-width: 80%;">
            <div class="modal-content">
              <div class="modal-header">
-               <h5 class="modal-title" id="exampleModalLongTitle">Mi plan de capacitación+</h5>
+               <h5 class="modal-title" id="exampleModalLongTitle">Todos los cursos</h5>
                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                  <span aria-hidden="true">&times;</span>
                </button>
              </div>
              <!-- Se agrega la Tabla de avances dentro de la ventana modal -->
              <div class="modal-body">
-                 <p style="margin-top:1rem; margin-left:2rem; font-size: 2rem; text-align: left; color:#50565A"></p>
-                 <br><br>
-                 <div class="containercapacitacion2" style="margin-top:-4rem;">
-                     <br><br>
-                 <div class="container-fluid contCapacitacionDosModal" id="capacitacionmax">
-                      {{#curses}}
-                           {{#.}}
-                                  <div  style="color: #50565A;" class="contSemanamax">
-                                <div style="color: #50565A;"  class="contTituloSemana"><span class="semanamax">{{fullname}}</span><br> 
-                                        <a  style="text-decoration:none; color: #50565A; font-size: 1.25rem;" href="{{wwwroot}}/course/view.php?id={{id}}"> <b>{{fullname}}</b></a>
-                                    
+                <div class="container containCursos">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="container containCardCursos">
+                                <div class="row">
+                                {{#progressuser}}
+                                {{#.}}
+                                    <div class="cardCurso col-4">
+                                    <p class="titleCardCurso"> <a  style="text-decoration:none; color:white;" href="{{wwwroot}}/course/view.php?id={{id}}"> {{fullname}}</a></p>
+                                    <div class="footerCardCurso">
+                                        <p class="subtitleCardCurso">{{fullname}}</p>
+                                        <progress id="file" max="100" value="{{ percentage }}">{{ percentage }} %</progress>
+                                        <p class="progressNumber">{{ percentage }} % completado</p>
+                                    </div>
+                                    </div>
+                                {{/.}}
+                               {{/progressuser}}
                                 </div>
-                                        <div class="contSubSemana">{{semanas}}</div>
-                         </div>
-                         
-                                 {{/.}}
-                         {{/curses}}
-                     <h6 class="textoencima">{{Result}}</h6> 
-                     
-             </div>
-             </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
          </div>
            </div>
          </div>

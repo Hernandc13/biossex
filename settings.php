@@ -214,11 +214,20 @@ if ($ADMIN->fulltree) {
      $setting = new admin_setting_confightmleditor($name, $title, $description, $default);
      $page->add($setting);
 
+           // Video tutotial setting.
+           $name = 'theme_biossex/VideoTutorial';
+           $title = 'Video Tutorial';
+           $description = 'Ingresa el link del video.';
+           $default = '<iframe width="475" height="280" src="https://www.youtube.com/embed/pA49eZe3L6k" title="Quirófano Inteligente biossmann" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+           $setting = new admin_setting_configtextarea($name, $title, $description, $default);
+           $setting->set_updatedcallback('theme_reset_all_caches');
+           $page->add($setting);
+
           // Video Welcome setting.
      $name = 'theme_biossex/VideoWelcome';
      $title = get_string('VideoWelcomeDesc', 'theme_biossex');
      $description = get_string('VideoWelcome', 'theme_biossex');
-     $default = '<iframe width="475" height="280" src="https://www.youtube.com/embed/pA49eZe3L6k" title="Quirófano Inteligente biossex" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+     $default = '<iframe width="475" height="280" src="https://www.youtube.com/embed/pA49eZe3L6k" title="Quirófano Inteligente biossmann" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
      $setting = new admin_setting_configtextarea($name, $title, $description, $default);
      $setting->set_updatedcallback('theme_reset_all_caches');
      $page->add($setting);
