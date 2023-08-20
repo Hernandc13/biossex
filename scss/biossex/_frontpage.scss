@@ -589,8 +589,8 @@ iframe {
 .imgstyle {
     border: 0.3rem solid #f38020;
     border-radius: 50%;
-    width: 150px;
-    height: 150px;
+    width: 7rem;
+    height: 7rem;
 }
 
 #containertxtvideo {
@@ -704,15 +704,15 @@ body {
   .titleCardCurso{
     background-color: #B8B9BB;
     color: #fff;
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: bold;
-    min-height: 10rem;
+    min-height: 8rem;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     height: min-content;
-    padding: 1.5rem;
+    padding: 1.25rem;
   }
 
   .gridContainCursos{
@@ -725,6 +725,7 @@ body {
 
   .subtitleCardCurso{
     font-weight: 600;
+    font-size: 0.75rem;
   }
   
   .footerCardCurso{
@@ -738,13 +739,13 @@ body {
   }
   
   .progressNumber{
-    font-size: 0.75rem;
+    font-size: 0.65rem;
     font-weight: 100;
   }
 
   .progressCursos{
     width: 75%;
-    height: 1rem;
+    height: 0.65rem;
     margin: 0 auto;
     background-color: transparent;
   }
@@ -784,7 +785,7 @@ body {
     border: none;
     padding: 0.5rem 0;
     border-radius: 0.5rem;
-    font-size: 1.25rem;
+    font-size: 1rem;
     cursor: pointer;
   }
 

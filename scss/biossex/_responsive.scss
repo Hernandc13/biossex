@@ -272,6 +272,36 @@
 }
 
 
-@media (min-width: 1800px){
+@media (min-width: 1200px){
+  .imgstyle {
+    width: 9.5rem;
+    height: 9.5rem;
+  }
+  .titleCardCurso{
+    font-size: 1.95rem;
+    min-height: 10rem;
+    padding: 1.5rem;
+  }
+  .subtitleCardCurso{
+    font-size: 0.95rem;
+  }
+  .progressCursos{
+    height: 0.8rem;
+  }
+  .progressNumber{
+    font-size: 0.75rem;
+  }
+  .contButtonMas button{
+    font-size: 1.25rem;
+  }
+}
 
+@media (min-width: 1400px){
+  .imgstyle {
+    width: 10.5rem;
+    height: 10.5rem;
+  }
+  .titleCardCurso{
+    font-size: 2.15rem;
+  }
 }
