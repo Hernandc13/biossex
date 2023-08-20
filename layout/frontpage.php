@@ -33,7 +33,7 @@ require_once($CFG->libdir . '/filelib.php');
 require_once(__DIR__ . '/../lib.php');
 
 //Imagenes locales para el plan de capacitación
-$logoFooter= $CFG->wwwroot . "/theme/biossex/pix/Logobiossmann.png";
+$logoFooter= $CFG->wwwroot . "/theme/biossex/pix/LogoBiossmann.png";
 
 //Actualizamos foto de perfil.
 if (!empty($_FILES)) {

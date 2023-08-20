@@ -24,7 +24,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$logoFooter= $CFG->wwwroot . "/theme/biossex/pix/Logobiossmann.png";
+$logoFooter= $CFG->wwwroot . "/theme/biossex/pix/LogoBiossmann.png";
 
 global $DB;
 

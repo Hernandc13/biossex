@@ -46,7 +46,7 @@ user_preference_allow_ajax_update('sidepre-open', PARAM_ALPHA);
 
 require_once($CFG->libdir . '/behat/lib.php');
 
-$logoFooter= $CFG->wwwroot . "/theme/biossex/pix/Logobiossmann.png";
+$logoFooter= $CFG->wwwroot . "/theme/biossex/pix/LogoBiossmann.png";
 
 if (isloggedin()) {
     $navdraweropen = (get_user_preferences('drawer-open-nav', 'true') == 'true');
