@@ -53,6 +53,7 @@ $fechaActual = date('d/m/Y');
 $saludo = "";
 if (theme_biossex_compare_dates($fechaActual, $fechaIngreso) == 0 or theme_biossex_compare_dates($fechaActual, $fechaIngreso) <= 6){
     $saludo = get_config('theme_biossex', 'unaSemana');
+    echo $saludo;
 }else if (theme_biossex_compare_dates($fechaActual, $fechaIngreso) == 7 or theme_biossex_compare_dates($fechaActual, $fechaIngreso) <= 13) {
     $saludo = get_config('theme_biossex', 'unaSemana');
 } else if (theme_biossex_compare_dates($fechaActual, $fechaIngreso) == 14 or theme_biossex_compare_dates($fechaActual, $fechaIngreso) <= 20) {
