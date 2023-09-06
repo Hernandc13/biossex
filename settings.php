@@ -214,14 +214,6 @@ if ($ADMIN->fulltree) {
      $setting = new admin_setting_confightmleditor($name, $title, $description, $default);
      $page->add($setting);
 
-           // Video tutotial setting.
-           $name = 'theme_biossex/VideoTutorial';
-           $title = 'Video Tutorial';
-           $description = 'Ingresa el link del video.';
-           $default = '<iframe width="475" height="280" src="https://www.youtube.com/embed/pA49eZe3L6k" title="Quirófano Inteligente biossmann" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
-           $setting = new admin_setting_configtextarea($name, $title, $description, $default);
-           $setting->set_updatedcallback('theme_reset_all_caches');
-           $page->add($setting);
 
           // Video Welcome setting.
      $name = 'theme_biossex/VideoWelcome';
@@ -466,133 +458,9 @@ if ($ADMIN->fulltree) {
     $settings->add($settingpage);
 
 
-     /*
-    * --------------------
-    * Vacantes settings tab
-    * --------------------
-    */
-    
-    $page = new admin_settingpage('theme_biossex_vacantes', get_string('vacancies', 'theme_biossex'));
-
-    //Cantidad de vacantes
-    $name = 'theme_biossex/countvacant';
-    $title = get_string('countvacant', 'theme_biossex');
-    $description = get_string('countvacantDesc', 'theme_biossex');
-    $default = 1;
-    $options = array();
-    for ($i = 0; $i < 13; $i++) {
-        $options[$i] = $i;
-    }
-    $setting = new admin_setting_configselect($name, $title, $description, $default, $options);
-    $setting->set_updatedcallback('theme_reset_all_caches');
-    $page->add($setting);
-
-    // If we don't have an slide yet, default to the preset.
-    $slidercountVacante = get_config('theme_biossex', 'countvacant');
-
-    if (!$slidercountVacante) {
-        $slidercountVacante = 1;
-    }
-
-    for ($sliderindex = 1; $sliderindex <= $slidercountVacante; $sliderindex++) {
-        $fileid = 'imagevacante' . $sliderindex;
-        $name = 'theme_biossex/imagevacante' . $sliderindex;
-        $title = get_string('imagevacante', 'theme_biossex');
-        $description = get_string('imagevacantedesc', 'theme_biossex');
-        $opts = array('accepted_types' => array('.png', '.jpg', '.gif', '.webp', '.tiff', '.svg'), 'maxfiles' => 1);
-        $setting = new admin_setting_configstoredfile($name, $title, $description, $fileid, 0, $opts);
-        $setting->set_updatedcallback('theme_reset_all_caches');
-        $page->add($setting);
-
-        //Titulo de la vacante
-        $name = 'theme_biossex/imagetitle' . $sliderindex;
-        $title = get_string('imagetitle', 'theme_biossex');
-        $description = get_string('imagetitledesc', 'theme_biossex');
-        $default = 'Vacante biossex';
-        $setting = new admin_setting_confightmleditor($name, $title, $description, $default);
-        $page->add($setting);
-
-        //Descripción de la vacante
-        $name = 'theme_biossex/imagedescripcion' . $sliderindex;
-        $title = get_string('imagedescripcion', 'theme_biossex');
-        $description = get_string('imagedescripciondesc', 'theme_biossex');
-        $default = 'Descripción del puesto';
-        $setting = new admin_setting_confightmleditor($name, $title, $description, $default);
-        $page->add($setting);
-
-         // Url para boton de vacante Refiere.
-      $name = 'theme_biossex/refiere'.$sliderindex;
-      $title = get_string('refiere', 'theme_biossex');
-      $description = get_string('refieredesc', 'theme_biossex');
-      $default = 'https://www.facebook.com/biossex-160626161282799/?epa=SEARCH_BOX';
-      $setting = new admin_setting_configtext($name, $title, $description, $default);
-      $setting->set_updatedcallback('theme_reset_all_caches');
-      $page->add($setting);
-
-      // Url para boton de vacante Interna.
-      $name = 'theme_biossex/interna'.$sliderindex;
-      $title = get_string('interna', 'theme_biossex');
-      $description = get_string('internadesc', 'theme_biossex');
-      $default = 'https://www.facebook.com/biossex-160626161282799/?epa=SEARCH_BOX';
-      $setting = new admin_setting_configtext($name, $title, $description, $default);
-      $setting->set_updatedcallback('theme_reset_all_caches');
-      $page->add($setting);
-    }
-
-    $settings->add($page);
-
-              /*
-    * --------------------
-    * Plan de Capacitación settings tab
-    * --------------------
-    */
-    
-
-    $settingpage = new admin_settingpage('theme_biossex_plan', get_string('PlanCapacitacion', 'theme_biossex'));
-
-    $settingpage->add(new admin_setting_heading('theme_biossex_plan', null,
-            format_text(get_string('PlanCapacitacionDesc', 'theme_biossex'), FORMAT_MARKDOWN)));
-
-     
-    $settings->add($settingpage);
-
  
-
-     /*
-    * --------------------
-    * Webinar settings tab
-    * --------------------
-    */
-
-   
-
-    $settingpage = new admin_settingpage('theme_biossex_webinar', get_string('Webinar', 'theme_biossex'));
-
-    $settingpage->add(new admin_setting_heading('theme_biossex_webinar', null,
-            format_text(get_string('WebinarDesc', 'theme_biossex'), FORMAT_MARKDOWN)));
-
-$settings->add($settingpage);
 }
 
-
-     /*
-    * --------------------
-    * Birthday settings tab
-    * --------------------
-    */
-
-   
-    $page = new admin_settingpage('theme_biossex_birthday', get_string('Birthday', 'theme_biossex'));
-
-
-  // Imagen para block birthday
-  $name = 'theme_biossex/Birthday';
-  $title = get_string('BirthdayDesc', 'theme_biossex');
-  $description = get_string('Birthday', 'theme_biossex');
-  $opts = array('accepted_types' => array('.png', '.jpg', '.gif', '.webp', '.tiff', '.svg'), 'maxfiles' => 1);
-  $setting = new admin_setting_configstoredfile($name, $title, $description, 'birthday', 0, $opts);
-  $setting->set_updatedcallback('theme_reset_all_caches');
-  $page->add($setting);
 
 
  $settings->add($page);

@@ -602,20 +602,34 @@ function theme_biossex_compare_dates($primera, $segunda){
     }else{
         $diasSinAcceder = $diasPrimeraJuliano - $diasSegundaJuliano;
         $saludo = "";
-        if ($diasSinAcceder == 0) {
+        if ($diasSinAcceder == 0 || $diasSinAcceder < 0) {
             $saludo = "¡Bienvenido!";
-        } else if ($diasSinAcceder == 1 or $diasSinAcceder <= 6) {
+        } else if ($diasSinAcceder == 1 || $diasSinAcceder <= 6) {
             $saludo = get_config('theme_biossex', 'unDia');
-        } else if ($diasSinAcceder == 7 or $diasSinAcceder <= 13) {
+            if($saludo!=""){
+              return  $saludo;
+            }
+        } else if ($diasSinAcceder == 7 || $diasSinAcceder <= 13) {
             $saludo = get_config('theme_biossex', 'unaSemana');
-        } else if ($diasSinAcceder== 14 or $diasSinAcceder <= 30) {
+            if($saludo!=""){
+                return  $saludo;
+              }
+        } else if ($diasSinAcceder== 14 || $diasSinAcceder <= 30) {
             $saludo = get_config('theme_biossex', 'dosSemanas');
+            if($saludo!=""){
+                return  $saludo;
+              }
         } else if ($diasSinAcceder == 31) {
             $saludo = get_config('theme_biossex', 'unMes');
+            if($saludo!=""){
+                return  $saludo;
+              }
         } else if ($diasSinAcceder > 31) {
             $saludo = get_config('theme_biossex', 'masdeunMes');
+            if($saludo!=""){
+                return  $saludo;
+              }
         }
-        return  $saludo;
     } 
 }
 //función para la obtención de las imagenes del slider

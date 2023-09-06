@@ -117,7 +117,6 @@ if (isloggedin()) {
     //Consulta para acceder al texto registrado en la base de datos.
     $value = get_config('theme_biossex', 'TextoWelcome');
     $valueVideo = get_config('theme_biossex', 'VideoWelcome');
-    $valueVideo2 = get_config('theme_biossex', 'VideoTutorial');
     //Obtenemos la cantidad de imagenes que se van a registrar(slidercount)
     $valueSlidercount = get_config('theme_biossex', 'slidercount');
     //Recorrer los registros de la base de datos
