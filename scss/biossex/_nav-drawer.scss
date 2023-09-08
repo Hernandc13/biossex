@@ -127,6 +127,10 @@
                 content: "\e040";
             }
 
+            &[data-key="addblock"] a:before {
+                content: "\e095";
+            }
+
             &[data-key="sitesettings"] a:before {
                 content: "\e09a";
             }
