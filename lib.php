@@ -528,23 +528,25 @@ function theme_biossex_get_progress_user($userid) {
         }
 
         $aux = grade_get_course_grade($userid, $course->id);
-            if($aux->grade){
-               //se agrega calificación a solo 2 decimales.
-                $course->grade = number_format($aux->grade, 2);
-            }
+        if($aux->grade){
+            //se agrega calificación a solo 2 decimales.
+             $course->grade = number_format($aux->grade, 0);
+             $certificate =  new \theme_biossmann\util\certificates($USER, $course->id);
+             $cert_ob = $certificate->get_all_certificates();
+             $certs_arr = [];
+             foreach($cert_ob as $cert){
+                 if( $course->grade >80){
+                     array_push($certs_arr, $cert["certificates"][0]->downloadurl);
+                 }
+             }
+             
+             $course->certificate = $certs_arr;
+             
+         }
             else {
                 $course->grade = "--";
             }
-        $certificate =  new \theme_biossex\util\certificates($USER, $course->id);
-        $cert_ob = $certificate->get_all_certificates();
-        $certs_arr = [];
-        foreach($cert_ob as $cert){
-            
-            array_push($certs_arr, $cert["certificates"][0]->downloadurl);
-        }
-        
-        $course->certificate = $certs_arr;
-        
+       
 
     }
     return $coursesuser;
