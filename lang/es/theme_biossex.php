@@ -249,13 +249,13 @@ $string['nohavecertificates'] = 'You no have certificates yet';
 $string['coursesections'] = 'Contenido';
 
 // Mypublic page.
-$string['userprofile'] = 'User profile';
-$string['competencyplans'] = 'Competency plans';
-$string['details'] = 'Details';
-$string['startedon'] = 'Started on';
-$string['addcontact'] = 'Add contact';
-$string['removecontact'] = 'Remove contact';
-$string['certificates'] = 'Certificates';
+$string['userprofile'] = 'Perfil del Usuario';
+$string['competencyplans'] = 'Planes de competencia';
+$string['details'] = 'Detalles';
+$string['startedon'] = 'Comenzó en';
+$string['addcontact'] = 'Agregar Contacto';
+$string['removecontact'] = 'Eliminar Contacto';
+$string['certificates'] = 'Certificados';
 
 // Theme settings.
 $string['themesettingstitle'] = 'Accessibility settings';

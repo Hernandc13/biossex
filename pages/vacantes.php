@@ -21,7 +21,7 @@ if (isloggedin() && !isguestuser() && $USER->picture > 0) {
     if ($CFG->branch >= 33) {
         $url = $renderer->image_url('u/f$1');
     } else {
-        $url = $renderer->pix_url('u/f$1'); // Deprecated as of Moodle 3.3.
+        $url = $renderer->image_url ('u/f$1'); // Deprecated as of Moodle 3.3.
     }
 }
 $srcpixuser = str_replace('/f%24', '/f$', $url);

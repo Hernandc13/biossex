@@ -33,31 +33,31 @@ $string['configtitle'] = 'biossex';
 $string['choosereadme'] = 'biossex is a modern highly-customisable theme. This theme is intended to be used directly, or as a parent theme when creating new themes utilising Bootstrap 4.';
 
 $string['currentinparentheses'] = '(current)';
-$string['region-side-pre'] = 'Right';
-$string['login'] = 'Already have an account?';
-$string['prev_section'] = 'Previous section';
-$string['next_section'] = 'Next section';
-$string['search_site'] = 'Search on site';
-$string['search_forums'] = 'Search on course forums';
-$string['platform_access'] = 'Access to the platform';
-$string['readmore'] = 'Read More';
-$string['stayintouch'] = 'Stay in touch';
-$string['madewitmoodle'] = 'Proudly made with';
-$string['madeby'] = 'Made with';
-$string['by'] = 'by';
-$string['discipline_progress'] = 'Topic\'s progress';
-$string['access'] = 'Access';
-$string['cachedef_admininfos'] = 'Site administrator dashboard infos cache definition';
-$string['cachedef_fontawesomebiossexiconmapping'] = 'Theme icon font definition';
-$string['diskusage'] = 'Disk usage(moodledata)';
-$string['notcalculatedyet'] = 'Not calculated yet';
-$string['calculatediskusagetask'] = 'Task to calculate the disk usage';
-$string['totalusers'] = 'Active / Suspended users';
-$string['totalcourses'] = 'Total courses';
-$string['onlineusers'] = 'Online users(last 5 minutes)';
-$string['showhideblocks'] = 'Show/hide blocks';
-$string['prev_activity'] = 'Previous activity';
-$string['next_activity'] = 'Next activity';
+$string['region-side-pre'] = 'Derecha';
+$string['login'] = '¿Ya tienes una cuenta?';
+$string['prev_section'] = 'Sección anterior';
+$string['next_section'] = 'Sección siguiente';
+$string['search_site'] = 'Buscar en el sitio';
+$string['search_forums'] = 'Buscar en foros de cursos';
+$string['platform_access'] = 'Acceso a la plataforma';
+$string['readmore'] = 'Lee mas';
+$string['stayintouch'] = 'Mantente en contacto';
+$string['madewitmoodle'] = 'Orgullosamente creado con';
+$string['madeby'] = 'Creado con';
+$string['by'] = 'por';
+$string['discipline_progress'] = 'Progreso del tema';
+$string['access'] = 'Acceso';
+$string['cachedef_admininfos'] = 'Definición de caché de información del panel del administrador del sitio';
+$string['cachedef_fontawesomebiossexiconmapping'] = 'Definición de fuente de icono de tema';
+$string['diskusage'] = 'Uso del disco(moodledata)';
+$string['notcalculatedyet'] = 'Aún no calculado';
+$string['calculatediskusagetask'] = 'Tarea para calcular el uso del disco';
+$string['totalusers'] = 'Usuarios activos / suspendidos';
+$string['totalcourses'] = 'Cursos totales';
+$string['onlineusers'] = 'Usuarios en línea (últimos 5 minutos)';
+$string['showhideblocks'] = 'Mostrar / ocultar bloques';
+$string['prev_activity'] = 'Actividad anterior';
+$string['next_activity'] = 'Actividad siguiente';
 
 // General settings tab.
 $string['generalsettings'] = 'General';
@@ -85,7 +85,7 @@ $string['coursedefault'] = 'Default presentation';
 $string['coursecover'] = 'Cover image';
 $string['courselistview'] = 'Enable course list view';
 $string['courselistviewdesc'] = 'Switch the courses view from box to list view';
-$string['myactivecourses'] = 'My active courses';
+$string['myactivecourses'] = 'Mis cursos activos';
 
 // Advanced settings tab.
 $string['advancedsettings'] = 'Advanced';
@@ -254,13 +254,14 @@ $string['coursesections'] = 'Contenido';
 // vacantes
 
 // Mypublic page.
-$string['userprofile'] = 'User profile';
-$string['competencyplans'] = 'Competency plans';
-$string['details'] = 'Details';
-$string['startedon'] = 'Started on';
-$string['addcontact'] = 'Add contact';
-$string['removecontact'] = 'Remove contact';
-$string['certificates'] = 'Certificates';
+$string['userprofile'] = 'Perfil del Usuario';
+$string['competencyplans'] = 'Planes de competencia';
+$string['details'] = 'Detalles';
+$string['startedon'] = 'Comenzó en';
+$string['addcontact'] = 'Agregar Contacto';
+$string['removecontact'] = 'Eliminar Contacto';
+$string['certificates'] = 'Certificados';
+
 
 // Theme settings.
 $string['themesettingstitle'] = 'Accessibility settings';

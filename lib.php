@@ -682,7 +682,7 @@ function theme_biossex_get_pix_user(){
         if ($CFG->branch >= 33) {
             $url = $renderer->image_url('u/f$1');
         } else {
-            $url = $renderer->pix_url('u/f$1'); // Deprecated as of Moodle 3.3.
+            $url = $renderer->image_url ('u/f$1'); // Deprecated as of Moodle 3.3.
         }
     }
     return str_replace('/f%24', '/f$', $url);

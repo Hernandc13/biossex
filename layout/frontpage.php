@@ -53,7 +53,6 @@ $fechaActual = date('d/m/Y');
 $saludo = "";
 if (theme_biossex_compare_dates($fechaActual, $fechaIngreso) == 0 or theme_biossex_compare_dates($fechaActual, $fechaIngreso) <= 6){
     $saludo = get_config('theme_biossex', 'unaSemana');
-    echo $saludo;
 }else if (theme_biossex_compare_dates($fechaActual, $fechaIngreso) == 7 or theme_biossex_compare_dates($fechaActual, $fechaIngreso) <= 13) {
     $saludo = get_config('theme_biossex', 'unaSemana');
 } else if (theme_biossex_compare_dates($fechaActual, $fechaIngreso) == 14 or theme_biossex_compare_dates($fechaActual, $fechaIngreso) <= 20) {
@@ -212,6 +211,7 @@ if (isloggedin()) {
         //consultamos los cursos
         $curses= "SELECT * FROM {course} WHERE id != 1";
        $ConsultaCurses = $DB->get_records_sql($curses);
+
        
          
     $templatecontext = [
@@ -246,11 +246,8 @@ if (isloggedin()) {
         'viewPodcast' => $ViewPodcast,
         'wwwroot' => $wwwroot,
         'fielpuesto' => $resultado,
-        'PlanCapacitacionMax' => $concapacitacion,
-        'PlanCapacitacion' => $concapacitacionmax,
         'Webinar'=>$Webinar,
         'ImgWebinar' =>$urlimgWebinar,
-        'Result'=>$resvacio,
         'logoFooter'=>$logoFooter,
         'curses'=>array_values($ConsultaCurses),
     ];
