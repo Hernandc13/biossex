@@ -535,7 +535,7 @@ function theme_biossex_get_progress_user($userid) {
              $cert_ob = $certificate->get_all_certificates();
              $certs_arr = [];
              foreach($cert_ob as $cert){
-                 if( $course->grade >80){
+                 if( $course->grade >=80){
                      array_push($certs_arr, $cert["certificates"][0]->downloadurl);
                  }
              }
