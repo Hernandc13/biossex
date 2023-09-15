@@ -702,7 +702,6 @@ body {
   }
   
   .titleCardCurso{
-    background-color: #B8B9BB;
     color: #fff;
     font-size: 1.5rem;
     font-weight: bold;
@@ -761,16 +760,16 @@ body {
     }
 
     .red::-webkit-progress-value{
-        background-color: #EF2222;
+        background-color: #EF2222 !important;
     }
     .orange::-webkit-progress-value{
-        background-color: #F58220;
+        background-color: #F58220 !important;
     }
     .yellow::-webkit-progress-value{
-        background-color: #F9DE16;
+        background-color: #F9DE16 !important;
     }
     .green::-webkit-progress-value{
-        background-color: #3FD850;
+        background-color: #3FD850 !important;
     }
   
   .contButtonMas{

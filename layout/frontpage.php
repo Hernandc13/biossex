@@ -34,7 +34,7 @@ require_once(__DIR__ . '/../lib.php');
 
 //Imagenes locales para el plan de capacitación
 $logoFooter= $CFG->wwwroot . "/theme/biossex/pix/LogoBiossmann.png";
-
+$logocursosEx= $CFG->wwwroot . "/theme/biossex/pix/portales2.jpg";
 //Actualizamos foto de perfil.
 if (!empty($_FILES)) {
     theme_biossex_update_image_profile($_FILES);
@@ -249,6 +249,7 @@ if (isloggedin()) {
         'Webinar'=>$Webinar,
         'ImgWebinar' =>$urlimgWebinar,
         'logoFooter'=>$logoFooter,
+        'logoExternos'=>$logocursosEx,
         'curses'=>array_values($ConsultaCurses),
     ];
 

@@ -8,10 +8,12 @@
                     {{#progressuserA}}
                     {{#.}}
                     <div class="cardCurso">
-                      <p class="titleCardCurso"> <a style="text-decoration:none; color:white;"
-                          href="{{wwwroot}}/course/view.php?id={{id}}"> {{fullname}}</a></p>
+                     <img src="{{logoExternos}}"  style="width: 100%;" />
                       <div class="footerCardCurso">
-                        <p class="subtitleCardCurso">{{fullname}}</p>
+                        <p class="subtitleCardCurso">
+                         <a style="text-decoration:none; color:white;"
+                          href="{{wwwroot}}/course/view.php?id={{id}}"> {{fullname}}</a>
+                          </p>
                         <progress class="progressCursos" max="100" value="{{ percentage }}">{{ percentage }} %</progress>
                         <p class="progressNumber">{{ percentage }} % completado</p>
                       </div>
@@ -49,10 +51,11 @@
                             {{#progressuser}}
                             {{#.}}
                             <div class="cardCurso">
-                              <p class="titleCardCurso"> <a style="text-decoration:none; color:white;"
-                                  href="{{wwwroot}}/course/view.php?id={{id}}"> {{fullname}}</a></p>
+                              <img src="{{logoExternos}}"  style="width: 100%;"  />
                               <div class="footerCardCurso">
-                                <p class="subtitleCardCurso">{{fullname}}</p>
+                                <p class="subtitleCardCurso"> <a style="text-decoration:none; color:white;"
+                          href="{{wwwroot}}/course/view.php?id={{id}}"> {{fullname}}</a>
+                               </p>
                                 <progress class="progressCursos" max="100" value="{{ percentage }}">{{ percentage }} %</progress>
                                 <p class="progressNumber">{{ percentage }} % completado</p>
                               </div>
