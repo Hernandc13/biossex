@@ -1488,3 +1488,9 @@ nav.navbar .drawer-toggle .nav-link {
     border: none;
     background-color: initial;
 }
+//se corrigue modo celular aparece en blanco
+
+
+body{
+    display: block !important;
+}
