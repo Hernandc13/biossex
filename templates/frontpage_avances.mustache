@@ -61,7 +61,7 @@
                       </button>
                     </div>
                     <!-- Se agrega la Tabla de avances dentro de la ventana modal -->
-                    <div class="modal-body">
+                    <div class="modal-body modal-body-avances">
                         <p style="margin-top:1rem; margin-left:2rem; font-size: 2rem; text-align: left; color:#50565A"></p>
                         <br>
                         <table class="table tableAvances">
@@ -178,5 +178,15 @@
 
     .buttonDownload:active {
         scale: 0.97;
+    }
+
+    .modal-body-avances{
+        overflow: auto; 
+    }
+
+    @media(min-width: 768px){
+        .modal-body-avances{
+            overflow: hidden; 
+        }
     }
     </style>

@@ -2,14 +2,14 @@
     <div class="row">
         <div id="carouselExampleSlidesOnly" class="carousel slide col-12" data-ride="carousel">
             <!-- Diapositivas -->
-            <div class="carousel-inner" style="background-color: rgb(250, 247, 247); height:15rem;">
+            <div class="carousel-inner" style="background-color: rgb(250, 247, 247);">
                 <!-- d1 -->
                 <div class="carousel-item active">
                     <div class="row">
-                        <div class="col-4"  id="textoPortadaSlider">
+                        <div class="col-12 col-md-4"  id="textoPortadaSlider">
                             {{{TextoPortada}}}
                         </div>
-                        <div class="col-8">
+                        <div class="col-12 col-md-8">
                             <img src="{{ImgPortada}}" style="height: 50px; width: 100% !important; min-height: 300px !important;">
                         </div>
                     </div>
@@ -21,11 +21,11 @@
                 <div class="carousel-item">
                     <div class="row">
                         <!-- Texto del sliderImage desde Base de Datos-->
-                        <div class="col-4" id="textoPortadaSlider2">
+                        <div class="col-12 col-md-4" id="textoPortadaSlider2">
                             {{{texto}}}
                         </div>
                         <!-- Image desde Base de Datos-->
-                        <div class="col-8">
+                        <div class="col-12 col-md-8">
                             <a href="{{link}}">
                                 <img style="height: 50px;  width: 100% !important; min-height: 300px !important;" src="{{url}}">
                             </a>
@@ -70,10 +70,13 @@
 <!-- Área del Carrusel -->
 
 <style>
-    #textoPortadaSlider{
-        padding: 1rem 0rem 0rem 2rem !important;
+   #textoPortadaSlider{
+        padding:1.5rem !important;
     }
     #textoPortadaSlider2{
-        padding: 1rem 0rem 0rem 2rem !important;
+        padding:1.5rem !important;
+    }
+    .carousel-inner{
+        height: min-content;
     }
 </style>

@@ -149,7 +149,19 @@
 }
 
 .contFooter img{
-    width: 20rem;
+    width: 12rem;
+}
+
+@media(min-width: 768px){
+    .contFooter img{
+        width: 16rem;
+    }
+}
+
+@media(min-width: 992px){
+    .contFooter img{
+        width: 20rem;
+    }
 }
 .contLogoFooter{
     margin-bottom: 0.8em;

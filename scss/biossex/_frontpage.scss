@@ -618,12 +618,21 @@ body {
 }
 
 .textoencima {
+    font-size: 1.5rem;
+    margin: 1rem 0 0 3rem;
+    padding-bottom: 2rem;
     color: white;
-    font-size: 2rem;
-    margin-top: 2rem;
-    margin-left: 5rem;
-    padding-bottom: 3rem;
 }
+
+@media(min-width: 768px){
+    .textoencima {
+        font-size: 2rem;
+        margin-top: 2rem;
+        margin-left: 5rem;
+        padding-bottom: 3rem;
+    }
+}
+
 
 .z-index{
     z-index: 1;
@@ -716,11 +725,17 @@ body {
 
   .gridContainCursos{
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(1, 1fr);
         gap: 2rem;
         padding: 0 1rem;
         align-items: center;
   }
+
+   @media(min-width: 768px){
+    .gridContainCursos{
+        grid-template-columns: repeat(3, 1fr);
+  }
+   }
 
   .subtitleCardCurso{
     font-weight: 600;
@@ -825,6 +840,13 @@ body {
     background-color: white;
     border-radius: 1rem;
     width: 100%;
+    overflow: auto;
+}
+
+@media(min-width: 768px){
+    .contenedorAvances {
+        overflow: hidden;
+    }
 }
 
 progress {
